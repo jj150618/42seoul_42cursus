@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: junghkim <junghkim@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/30 15:25:00 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/01 22:24:59 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/01 21:19:10 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/01 21:26:18 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+# include <unistd.h>
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#endif
