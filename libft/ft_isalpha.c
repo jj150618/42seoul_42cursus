@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <junghkim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 21:19:10 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/14 16:05:46 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/14 16:53:08 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/14 17:06:06 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcat(char *dest, const char *src, size_t n);
-
-#endif
+int	ft_isalpha(int c)
+{
+	if (c >= 65 && c <= 90)
+		return (1);
+	else if (c >= 97 && c <= 122)
+		return (2);
+	else
+		return (0);
+}

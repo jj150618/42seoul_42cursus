@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <junghkim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 21:19:10 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/14 16:05:46 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/14 16:21:50 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/14 16:36:22 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+char	*ft_strrchr(const char *str, int c)
+{
+	size_t	i;
 
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcat(char *dest, const char *src, size_t n);
-
-#endif
+	i = ft_strlen(str);
+	while (0 < i)
+	{
+		if (*(str + i) == c)
+			return ((char *)(str + i));
+		i--;
+	}
+	return (NULL);
+}

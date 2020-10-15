@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <junghkim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 21:19:10 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/14 16:05:46 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/14 15:02:55 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/14 15:49:42 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
+{
+	size_t	i;
 
-# include <unistd.h>
-# include <stdlib.h>
-
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcat(char *dest, const char *src, size_t n);
-
-#endif
+	i = 0;
+	while ((str1[i] || str2[i]) && i < n)
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
+}
