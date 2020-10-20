@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 15:49:57 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/20 16:51:46 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/20 15:56:39 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/20 17:00:39 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	dest_n;
-	size_t	src_n;
+	char	*temp;
 	size_t	i;
 
-	dest_n = ft_strlen(dest);
-	src_n = ft_strlen(src);
-	i = 0;
-	while (src[i] && n > dest_n + i + 1)
+	temp = malloc(sizeof(char) * (len + 1));
+	if (!temp)
+		return (NULL);
+	i = ft_strlen(s);
+	if (start > i)
 	{
-		dest[dest_n + i] = src[i];
-		i++;
+		temp[0] = '\0';
+		return (temp);
 	}
-	dest[dest_n + i] = '\0';
-	if (dest_n > n)
-		return (n + src_n);
-	else
-		return (dest_n + src_n);
+	ft_strlcpy(temp, s + start, len + 1);
+	return (temp);
 }
