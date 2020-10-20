@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 16:11:54 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/20 10:57:11 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/20 10:59:13 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ char	*ft_strchr(const char *str, int c)
 		str++;
 	}
 	if (*str == c)
-		return (str);
+		return ((char *)str);
 	return (NULL);
 }

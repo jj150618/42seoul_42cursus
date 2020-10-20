@@ -13,7 +13,9 @@ int main(void)
 	
 	i = ft_strlen(Love);
 	j = ft_strlcat(Love, Love_1, 10);
-	printf("%d\n%d\n",i, j);
+	printf("%d\n%d\n\n\n",i, j);
 
+	printf("%d", ft_strncmp("test\200", "test\0", 6));
+	printf("%d", strncmp("test\200", "test\0", 6));
 	return (0);
 }

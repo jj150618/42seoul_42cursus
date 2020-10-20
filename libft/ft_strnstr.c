@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 16:42:14 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/20 10:32:48 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/20 11:30:23 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 
 	cast_str = (char *)str;
 	cast_to_find = (char *)to_find;
-	if (!cast_to_find)
-		return (cast_str);
+	if (!*to_find)
+		return ((char *)str);
 	i = -1;
 	while (cast_str[++i] && i < n)
 	{
