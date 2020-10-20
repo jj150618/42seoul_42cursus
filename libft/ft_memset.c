@@ -6,18 +6,18 @@
 /*   By: junghkim <junghkim@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 20:30:47 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/14 15:03:33 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/20 10:26:11 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *dest, int src, size_t n)
+void	*ft_memset(void *dest, int c, size_t n)
 {
 	unsigned char	*cast_dest;
 
-	cast_dset = (unsigned char *)dest;
+	cast_dest = (unsigned char *)dest;
 	while (0 < n--)
-		*(cast_dest++) = src;
+		*(cast_dest++) = c;
 	return (dest);
 }

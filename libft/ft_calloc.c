@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 14:02:45 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/20 10:43:26 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/20 10:33:47 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/20 10:39:58 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_calloc(size_t n, size_t size)
 {
-	unsigned char	*cast_str;
+	void *temp;
 
-	cast_str = (unsigned char *)str;
-	while (0 < n--)
-		if (*(cast_str++) == (unsigned char)c)
-			return ((void *)(cast_str - 1));
-	return (NULL);
+	temp = malloc(n * size);
+	if (!temp)
+		return (NULL);
+	ft_memset(temp, 0, n * size);
+	return (temp);
 }

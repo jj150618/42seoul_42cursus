@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 16:42:14 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/14 16:52:20 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/20 10:32:48 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,22 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
 	size_t	i;
 	size_t	j;
+	char	*cast_str;
+	char	*cast_to_find;
 
-	if (!to_find)
-		return (str);
+	cast_str = (char *)str;
+	cast_to_find = (char *)to_find;
+	if (!cast_to_find)
+		return (cast_str);
 	i = -1;
-	while (str[++i] && i < n)
+	while (cast_str[++i] && i < n)
 	{
 		j = 0;
-		if (str[i] == to_find[j])
-			while (str[i + j] == to_find[j])
+		if (cast_str[i] == cast_to_find[j])
+			while (cast_str[i + j] == cast_to_find[j] && i + j < n)
 			{
-				if (to_find[j + 1] = '\0')
-					return ((char *)(str + i));
+				if (cast_to_find[j + 1] == '\0')
+					return (cast_str + i);
 				j++;
 			}
 		i++;
