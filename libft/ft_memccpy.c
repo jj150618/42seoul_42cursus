@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 13:48:49 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/20 10:37:16 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:19:37 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	while (0 < n--)
 	{
 		*(cast_dest++) = *(cast_src++);
-		if (*(cast_src - 1) == c)
+		if (*(cast_src - 1) == (unsigned char)c)
 			return ((void *)(cast_dest));
 	}
 	return (NULL);
