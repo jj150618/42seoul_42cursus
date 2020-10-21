@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:56:39 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/20 17:00:39 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/21 07:43:16 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*temp;
 	size_t	i;
 
-	temp = malloc(sizeof(char) * (len + 1));
+	temp = (char *)malloc(sizeof(char) * (len + 1));
 	if (!temp)
 		return (NULL);
 	i = ft_strlen(s);
