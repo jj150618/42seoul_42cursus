@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 10:18:55 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/22 10:40:23 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/22 11:58:36 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *temp;
 	t_list *new;
 
-	if (!lst || !*f || !del)
+	if (!lst || !*f)
 		return (NULL);
 	new = NULL;
 	while (lst)
