@@ -1,33 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/20 15:56:39 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/21 14:30:23 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/21 14:47:43 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/22 07:33:11 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static int	ft_numlen(int n)
+{
+	int i;
+
+	i = 0;
+	if (n <= 0)
+		i++;
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
+char		*ft_itoa(int n)
 {
 	char	*temp;
-	size_t	i;
+	int		i;
+	int		j;
+	int		temp_n;
 
-	if (!s)
-		return (NULL);
-	temp = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
+	j = ft_numlen(n);
+	temp_n = n;
+	temp = (char *)malloc(sizeof(char) * (j + 1));
 	if (!temp)
 		return (NULL);
-	i = ft_strlen(s);
-	if (start > i)
+	while (i < j)
 	{
-		temp[0] = '\0';
-		return (temp);
+		if (temp_n < 0)
+			temp[j - i - 1] = temp_n % 10 * (-1) + '0';
+		else
+			temp[j - i - 1] = temp_n % 10 + '0';
+		i++;
+		temp_n /= 10;
 	}
-	ft_strlcpy(temp, s + start, len + 1);
+	if (n < 0)
+		temp[0] = '-';
+	temp[j] = '\0';
 	return (temp);
 }

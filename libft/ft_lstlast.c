@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/20 15:56:39 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/21 14:30:23 by junghkim         ###   ########.fr       */
+/*   Created: 2020/10/22 09:24:00 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/22 11:10:48 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*temp;
-	size_t	i;
-
-	if (!s)
+	if (!lst)
 		return (NULL);
-	temp = (char *)malloc(sizeof(char) * (len + 1));
-	if (!temp)
-		return (NULL);
-	i = ft_strlen(s);
-	if (start > i)
-	{
-		temp[0] = '\0';
-		return (temp);
-	}
-	ft_strlcpy(temp, s + start, len + 1);
-	return (temp);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

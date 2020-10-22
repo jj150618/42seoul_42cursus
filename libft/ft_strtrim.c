@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 09:12:42 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/21 09:58:40 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/21 14:36:22 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	char	*temp;
 
+	if (!s1)
+		return (NULL);
 	start = 0;
 	end = ft_strlen(s1) - 1;
 	while (s1[start])

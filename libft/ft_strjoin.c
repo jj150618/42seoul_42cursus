@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 07:36:08 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/21 14:25:21 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/21 14:35:09 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*temp;
 
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
