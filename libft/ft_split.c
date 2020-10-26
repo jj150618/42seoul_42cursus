@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 09:59:26 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/27 00:05:58 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/27 00:12:19 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ char				**ft_split(char const *s, char c)
 		return (NULL);
 	if (!c && s[0])
 	{
+		free(strs);
 		strs = (char **)malloc(sizeof(char *) * 2);
 		i = ft_strlen(s);
 		strs[0] = ft_strdup_n(s, i);
