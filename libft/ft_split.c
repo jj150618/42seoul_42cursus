@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 09:59:26 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/22 16:20:30 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/26 23:59:34 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ static void			strs_free(char **strs)
 	i = -1;
 	while (strs[++i] != NULL)
 		free(strs[i]);
+	free(strs);
 }
 
 char				**ft_split(char const *s, char c)
@@ -92,10 +93,9 @@ char				**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	cnt = count_str(s, c);
-	strs = (char **)malloc(sizeof(char *) * (cnt + 1));
-	if (!strs)
+	if (!(strs = (char **)malloc(sizeof(char *) * (cnt + 1))))
 		return (NULL);
-	if (!c)
+	if (!c && s)
 	{
 		strs = (char **)malloc(sizeof(char *) * 2);
 		i = ft_strlen(s);
