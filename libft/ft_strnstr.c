@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 16:42:14 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/20 11:30:23 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/26 22:09:44 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 					return (cast_str + i);
 				j++;
 			}
-		i++;
 	}
 	return (NULL);
 }
