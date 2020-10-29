@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 07:59:13 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/29 10:45:01 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/10/29 11:13:57 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ char	*ft_strncpy(char *dest, char *src, size_t n)
 	return (dest);
 }
 
+size_t	ft_strlen(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
@@ -57,16 +67,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_strncpy(temp + i, s2, j);
 	temp[i + j] = '\0';
 	return (temp);
-}
-
-size_t	ft_strlen(char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
 
 char	*ft_strndup(char *s1, size_t n)
