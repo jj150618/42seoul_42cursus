@@ -1,75 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/29 07:59:13 by junghkim          #+#    #+#             */
+/*   Updated: 2020/10/29 10:45:01 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(char *str, int c)
+{
+	while (*str)
+	{
+		if (*str == c)
+			return ((char *)str);
+		str++;
+	}
+	if (*str == c)
+		return ((char *)str);
+	return (NULL);
+}
+
+char	*ft_strncpy(char *dest, char *src, size_t n)
 {
 	size_t i;
 
-	if (s == 0)
-		return (0);
+	if (!src)
+		return (NULL);
 	i = 0;
-	if (c == 0)
-		return ((char *)s + ft_strlen(s));
-	while (s[i])
+	while (i < n && src[i])
 	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)s + i);
+		dest[i] = src[i];
 		i++;
 	}
-	return (0);
-}
-
-size_t	ft_strlen(char *s)
-{
-	size_t i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strcpy(char *dst, char *src, size_t n)
-{
-	size_t i;
-
-	if (dst == 0 && src == 0)
-		return (dst);
-	i = 0;
-	while (i < n)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	return (dst);
-}
-
-char	*ft_strndup(char *s1, size_t size)
-{
-	char	*dup;
-
-	dup = (char *)malloc(sizeof(char) * (size + 1));
-	if (dup == 0)
-		return (0);
-	ft_strcpy(dup, s1, size);
-	dup[size] = 0;
-	return (dup);
+	return (dest);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*new_s;
-	size_t	len1;
-	size_t	len2;
+	size_t	i;
+	size_t	j;
+	char	*temp;
 
-	if (s1 == 0 && s2 == 0)
-		return (0);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	new_s = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (new_s == 0)
-		return (0);
-	ft_strcpy(new_s, s1, len1);
-	ft_strcpy(new_s + len1, s2, len2);
-	new_s[len1 + len2] = 0;
-	return (new_s);
+	if (!s1 || !s2)
+		return (NULL);
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	temp = (char *)malloc(sizeof(char) * (i + j + 1));
+	if (!temp)
+		return (NULL);
+	ft_strncpy(temp, s1, i);
+	ft_strncpy(temp + i, s2, j);
+	temp[i + j] = '\0';
+	return (temp);
+}
+
+size_t	ft_strlen(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strndup(char *s1, size_t n)
+{
+	char	*temp;
+
+	temp = (char *)malloc(sizeof(char) * (n + 1));
+	if (!temp)
+		return (NULL);
+	ft_strncpy(temp, s1, n);
+	temp[n] = '\0';
+	return (temp);
 }
