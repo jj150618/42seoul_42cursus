@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 11:07:59 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/29 11:14:23 by junghkim         ###   ########.fr       */
+/*   Updated: 2020/11/03 12:29:41 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-# ifndef OPEN_MAX
-#  define OPEN_MAX 256
-# endif
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2048
+#  define BUFFER_SIZE 4242
 # endif
 
 int		get_next_line(int fd, char **line);
-
 char	*ft_strchr(char *str, int c);
 char	*ft_strncpy(char *dest, char *src, size_t n);
 size_t	ft_strlen(char *str);
