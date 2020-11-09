@@ -7,19 +7,19 @@
 # include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 4242
 # endif
 
-# define NL 1
-# define _EOF 0
-# define ERROR -1
+# ifndef OPEN_MAX
+#  define OPEN_MAX 256
+# endif
 
 int		get_next_line(int fd, char **line);
 
-char	*ft_strchr(char *s, int c);
-size_t	ft_strlen(char *c);
-char	*ft_strcpy(char	*dst, char *stc, size_t n);
-char	*ft_strndup(char *s1, size_t size);
+char	*ft_strchr(char *str, int c);
+char	*ft_strncpy(char *dest, char *src, size_t n);
+size_t	ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(char *s1, size_t n);
 
 #endif

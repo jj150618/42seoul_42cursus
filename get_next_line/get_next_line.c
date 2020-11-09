@@ -12,51 +12,54 @@
 
 #include "get_next_line.h"
 
-static int	handle_line(char **line, char **note, char *check_nl)
+static int	handle_line(char **line, char **storage, char *nl)
 {
 	char	*temp;
 
-	if (nl_here != NULL)
+	if (nl != NULL)
 	{
-		*line = ft_strndup(*note, check_nl - *note);
-		tmp = ft_strndup(check_nl + 1, ft_strlen(check_nl + 1));
-		free(*note);
-		*note = temp;
-		return (NL);
+		*line = ft_strndup(*storage, nl - *storage);
+		temp = ft_strndup(nl + 1, ft_strlen(nl + 1));
+		free(*storage);
+		*storage = temp;
+		return (1);
 	}
-	if (*note != NULL)
+	if (*storage != NULL)
 	{
-		*line = *note;
-		*note = NULL;
+		*line = *storage;
+		*storage = NULL;
 	}
 	else
 		*line = ft_strndup("", 1);
-	return (_EOF);
+	return (0);
 }
 
 int			get_next_line(int fd, char **line)
 {
-	static char	*note[OPEN_MAX];
+	static char	*storage[OPEN_MAX];
 	static char	buff[BUFFER_SIZE + 1];
 	int			byte;
 	char		*temp;
-	char		*check_nl;
+	char		*nl;
 
 	if (fd < 0 || line == NULL || fd > OPEN_MAX || BUFFER_SIZE <= 0)
 		return (-1);
-	while ((check_nl = ft_strchr(note[fd], '\n')) == 0
-			&& (byte = read(fd, buff, BUFFER_SIZE)) > 0)
+	nl = ft_strchr(storage[fd], '\n');
+	byte = read(fd, buff, BUFFER_SIZE);
+	while (nl == 0 && byte  > 0)
 	{
-		buff[byte] = 0;
-		if (note[fd] == NULL)
+		buff[byte] = '\0';
+		if (storage[fd] == NULL)
 			temp = ft_strndup(buff, byte);
 		else
-			temp = ft_strjoin(note[fd], buff);
-		if (note[fd] != 0)
-			free(note[fd]);
-		note[fd] = tmp;
+			temp = ft_strjoin(storage[fd], buff);
+		if (storage[fd] != NULL)
+			free(storage[fd]);
+		storage[fd] = temp;
+		nl = ft_strchr(storage[fd], '\n');
+		byte = read(fd, buff, BUFFER_SIZE);
 	}
 	if (byte < 0)
 		return (-1);
-	return (handle_line(line, &note[fd], check_nl));
+	return (check_gnl(line, &storage[fd], nl));
 }
