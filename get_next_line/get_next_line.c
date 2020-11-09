@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-static int	handle_line(char **line, char **storage, char *nl)
+static int	check_gnl(char **line, char **storage, char *nl)
 {
 	char	*temp;
 

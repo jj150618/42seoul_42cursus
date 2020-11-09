@@ -32,8 +32,9 @@ int			get_next_line(int fd, char **line)
 
 	if (fd < 0 || line == NULL || fd > OPEN_MAX || BUFFER_SIZE <= 0)
 		return (-1);
-	while ((nl = ft_strchr(storage[fd], '\n')) == 0
-			&& (byte = read(fd, buff, BUFFER_SIZE)) > 0)
+	nl = ft_strchr(storage[fd], '\n');
+	byte = read(fd, buff, BUFFER_SIZE);
+	while (nl == 0 && byte > 0)
 	{
 		buff[byte] = 0;
 		temp = storage[fd] == NULL ? ft_strndup(buff, byte) :
@@ -41,8 +42,10 @@ int			get_next_line(int fd, char **line)
 		if (storage[fd] != 0)
 			free(storage[fd]);
 		storage[fd] = temp;
+		nl = ft_strchr(storage[fd], '\n');
+		byte = read(fd, buff, BUFFER_SIZE);
 	}
 	if (byte < 0)
-		return (ERROR);
-	return (handle_line(line, &storage[fd], nl));
+		return (-1);
+	return (check_gnl(line, &storage[fd], nl));
 }
