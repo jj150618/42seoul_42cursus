@@ -21,7 +21,13 @@
 #  define BUFFER_SIZE 4242
 # endif
 
+# ifndef OPEN_MAX
+#  define OPEN_MAX 256
+# endif
+
+
 int		get_next_line(int fd, char **line);
+
 char	*ft_strchr(char *str, int c);
 char	*ft_strncpy(char *dest, char *src, size_t n);
 size_t	ft_strlen(char *str);
