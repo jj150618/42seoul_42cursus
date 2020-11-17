@@ -1,70 +1,68 @@
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr(char *str, int c)
-{
-	while (*str)
-	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
-	}
-	if (*str == c)
-		return ((char *)str);
-	return (NULL);
-}
-
-char	*ft_strncpy(char *dest, char *src, size_t n)
-{
-	size_t i;
-
-	if (!src)
-		return (NULL);
-	i = 0;
-	while (i < n && src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
-}
-
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	j;
-	char	*temp;
+	size_t i;
+
+	i = 0;
+	if ((!dest && !src))
+		return (0);
+	while (src[i] && i + 1 < size)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (size)
+		dest[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t j;
+	size_t i;
+
+	j = 0;
+	i = 0;
+	while (dest[i] && i < size)
+		i++;
+	while (src[j] && i + j + 1 < size)
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	if (i + j < size)
+		dest[i + j] = '\0';
+	while (src[j])
+		j++;
+	return (i + j);
+}
+
+
+char	*ft_strjoin(char **s1, char *s2)
+{
+	char	*new_str;
+	size_t	join_str_len;
 
 	if (!s1 || !s2)
 		return (NULL);
-	i = ft_strlen(s1);
-	j = ft_strlen(s2);
-	temp = (char *)malloc(sizeof(char) * (i + j + 1));
-	if (!temp)
+	join_str_len = ft_strlen(*s1) + ft_strlen(s2) + 1;
+	if (!(new_str = (char*)malloc(join_str_len)))
 		return (NULL);
-	ft_strncpy(temp, s1, i);
-	ft_strncpy(temp + i, s2, j);
-	temp[i + j] = '\0';
-	return (temp);
-}
-
-char	*ft_strndup(char *s1, size_t n)
-{
-	char	*temp;
-
-	temp = (char *)malloc(sizeof(char) * (n + 1));
-	if (!temp)
-		return (NULL);
-	ft_strncpy(temp, s1, n);
-	temp[n] = '\0';
-	return (temp);
+	ft_strlcpy(new_str, *s1, join_str_len);
+	ft_strlcat(new_str, s2, join_str_len);
+	free(*s1);
+	return (new_str);
 }

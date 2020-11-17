@@ -12,54 +12,99 @@
 
 #include "get_next_line.h"
 
-static int	check_gnl(char **line, char **storage, char *nl)
+void	free_buff(t_list **head, int fd)
 {
-	char	*temp;
+	t_list	*temp;
+	t_list	*free_list;
 
-	if (nl != NULL)
+	temp = *head;
+	if (temp->fd == fd)
 	{
-		*line = ft_strndup(*storage, nl - *storage);
-		temp = ft_strndup(nl + 1, ft_strlen(nl + 1));
-		free(*storage);
-		*storage = temp;
-		return (1);
+		*head = temp->next;
+		free(temp->buff);
+		free(temp);
+		return ;
 	}
-	if (*storage != NULL)
-	{
-		*line = *storage;
-		*storage = NULL;
-	}
-	else
-		*line = ft_strndup("", 1);
-	return (0);
+	while (temp->next->fd != fd)
+		temp = temp->next;
+	free_list = temp->next;
+	temp->next = free_list->next;
+	free(free_list->buff);
+	free(free_list);
 }
 
-int			get_next_line(int fd, char **line)
+t_list	*new_buff(int fd)
 {
-	static char	*storage[OPEN_MAX];
-	static char	buff[BUFFER_SIZE + 1];
-	int			byte;
-	char		*temp;
-	char		*nl;
+	t_list *new;
 
-	if (fd < 0 || line == NULL || fd > OPEN_MAX || BUFFER_SIZE <= 0)
-		return (-1);
-	nl = ft_strchr(storage[fd], '\n');
-	byte = read(fd, buff, BUFFER_SIZE);
-	while (nl == 0 && byte  > 0)
+	if (!(new = malloc(sizeof(t_list))))
+		return (0);
+	if (!(new->buff = malloc(1)))
+		return (0);
+	new->buff[0] = '\0';
+	new->fd = fd;
+	new->next = NULL;
+	return (new);
+}
+
+t_list	*find_buff(t_list *lst_buff, int fd)
+{
+	while (lst_buff)
 	{
-		buff[byte] = '\0';
-		if (storage[fd] == NULL)
-			temp = ft_strndup(buff, byte);
-		else
-			temp = ft_strjoin(storage[fd], buff);
-		if (storage[fd] != NULL)
-			free(storage[fd]);
-		storage[fd] = temp;
-		nl = ft_strchr(storage[fd], '\n');
-		byte = read(fd, buff, BUFFER_SIZE);
+		if (lst_buff->fd == fd)
+			break ;
+		if (lst_buff->next == NULL)
+			if (!(lst_buff->next = new_buff(fd)))
+				return (0);
+		lst_buff = lst_buff->next;
 	}
-	if (byte < 0)
+	return (lst_buff);
+}
+
+int		find_new_line(char **line, t_list *lst_buf)
+{
+	size_t	i;
+	int		found;
+
+	found = 0;
+	i = 0;
+	while (lst_buf->buff[i] != '\0')
+		if (lst_buf->buff[i++] == '\n')
+		{
+			found = 1;
+			*line = malloc(i);
+			ft_strlcpy(*line, lst_buf->buff, i);
+			break ;
+		}
+	if (found)
+		ft_strlcpy(lst_buf->buff, lst_buf->buff + i,
+					ft_strlen(lst_buf->buff) + 1);
+	return (found);
+}
+
+int		get_next_line(int fd, char **line)
+{
+	static t_list	*head;
+	t_list			*lst_buf;
+	ssize_t			size;
+	int				found;
+
+	if (BUFFER_SIZE <= 0 || !line || (!head && !(head = new_buff(fd))) ||
+		!(lst_buf = find_buff(head, fd)))
 		return (-1);
-	return (check_gnl(line, &storage[fd], nl));
+	*line = 0;
+	while (!(found = find_new_line(line, lst_buf)) &&
+		((size = read(fd, lst_buf->temp_buff, BUFFER_SIZE)) > 0))
+	{
+		lst_buf->temp_buff[size] = '\0';
+		lst_buf->buff = ft_strjoin(&(lst_buf->buff), lst_buf->temp_buff);
+	}
+	if (found)
+		return (found);
+	if (size < 0)
+		return (-1);
+	*line = malloc(ft_strlen(lst_buf->buff) + 1);
+	ft_strlcpy(*line, lst_buf->buff, ft_strlen(lst_buf->buff) + 1);
+	free_buff(&head, fd);
+	return (0);
 }
