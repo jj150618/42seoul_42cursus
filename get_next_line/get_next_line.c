@@ -39,7 +39,7 @@ t_list	*new_buff(int fd)
 
 	if (!(new = malloc(sizeof(t_list))))
 		return (0);
-	if (!(new->buff = malloc(1)))
+	if (!(new->buff = malloc(sizeof(char) * 1)))
 		return (0);
 	new->buff[0] = '\0';
 	new->fd = fd;
@@ -47,64 +47,64 @@ t_list	*new_buff(int fd)
 	return (new);
 }
 
-t_list	*find_buff(t_list *lst_buff, int fd)
+t_list	*find_buff(t_list *list_buff, int fd)
 {
-	while (lst_buff)
+	while (list_buff)	
 	{
-		if (lst_buff->fd == fd)
+		if (list_buff->fd == fd)
 			break ;
-		if (lst_buff->next == NULL)
-			if (!(lst_buff->next = new_buff(fd)))
+		if (list_buff->next == NULL)
+			if (!(list_buff->next = new_buff(fd)))
 				return (0);
-		lst_buff = lst_buff->next;
+		list_buff = list_buff->next;
 	}
-	return (lst_buff);
+	return (list_buff);
 }
 
-int		find_new_line(char **line, t_list *lst_buf)
+int		find_new_line(char **line, t_list *list_buff)
 {
 	size_t	i;
 	int		found;
 
 	found = 0;
 	i = 0;
-	while (lst_buf->buff[i] != '\0')
-		if (lst_buf->buff[i++] == '\n')
+	while (list_buff->buff[i] != '\0')
+		if (list_buff->buff[i++] == '\n')
 		{
 			found = 1;
 			*line = malloc(i);
-			ft_strlcpy(*line, lst_buf->buff, i);
+			ft_strlcpy(*line, list_buff->buff, i);
 			break ;
 		}
 	if (found)
-		ft_strlcpy(lst_buf->buff, lst_buf->buff + i,
-					ft_strlen(lst_buf->buff) + 1);
+		ft_strlcpy(list_buff->buff, list_buff->buff + i,
+					ft_strlen(list_buff->buff) + 1);
 	return (found);
 }
 
 int		get_next_line(int fd, char **line)
 {
 	static t_list	*head;
-	t_list			*lst_buf;
+	t_list			*list_buff;
 	ssize_t			size;
 	int				found;
 
 	if (BUFFER_SIZE <= 0 || !line || (!head && !(head = new_buff(fd))) ||
-		!(lst_buf = find_buff(head, fd)))
+		!(list_buff = find_buff(head, fd)))
 		return (-1);
 	*line = 0;
-	while (!(found = find_new_line(line, lst_buf)) &&
-		((size = read(fd, lst_buf->temp_buff, BUFFER_SIZE)) > 0))
+	while (!(found = find_new_line(line, list_buff)) &&
+		((size = read(fd, list_buff->temp_buff, BUFFER_SIZE)) > 0))
 	{
-		lst_buf->temp_buff[size] = '\0';
-		lst_buf->buff = ft_strjoin(&(lst_buf->buff), lst_buf->temp_buff);
+		list_buff->temp_buff[size] = '\0';
+		list_buff->buff = ft_strjoin(&(list_buff->buff), list_buff->temp_buff);
 	}
 	if (found)
 		return (found);
 	if (size < 0)
 		return (-1);
-	*line = malloc(ft_strlen(lst_buf->buff) + 1);
-	ft_strlcpy(*line, lst_buf->buff, ft_strlen(lst_buf->buff) + 1);
+	*line = malloc(ft_strlen(list_buff->buff) + 1);
+	ft_strlcpy(*line, list_buff->buff, ft_strlen(list_buff->buff) + 1);
 	free_buff(&head, fd);
 	return (0);
-}
+  }
