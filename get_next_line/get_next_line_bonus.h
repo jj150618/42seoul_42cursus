@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/25 08:28:39 by junghkim          #+#    #+#             */
+/*   Updated: 2020/11/25 08:28:41 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
@@ -18,10 +30,10 @@ typedef struct		s_list
 
 int					get_next_line(int fd, char **line);
 
-void				free_buff(t_list **head, int fd);
-t_list				*find_buff(t_list *lst_buff, int fd);
-t_list				*new_buff(int fd);
-int					find_new_line(char **line, t_list *lst_buf);
+void				free_list(t_list **head, int fd);
+t_list				*find_list(t_list *lst_buff, int fd);
+t_list				*new_list(int fd);
+int					find_nl(char **line, t_list *lst_buf);
 
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 char				*ft_strjoin(char **s1, char *s2);

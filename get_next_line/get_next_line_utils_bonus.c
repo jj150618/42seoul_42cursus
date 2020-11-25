@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/25 08:28:33 by junghkim          #+#    #+#             */
+/*   Updated: 2020/11/25 12:14:36 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
@@ -49,7 +61,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		j++;
 	return (i + j);
 }
-
 
 char	*ft_strjoin(char **s1, char *s2)
 {
