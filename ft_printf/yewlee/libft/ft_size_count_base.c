@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_size_count_base.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yewlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 16:11:54 by junghkim          #+#    #+#             */
-/*   Updated: 2020/11/03 07:11:16 by junghkim         ###   ########.fr       */
+/*   Created: 2020/07/03 12:49:20 by yewlee            #+#    #+#             */
+/*   Updated: 2020/07/14 16:46:39 by yewlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+size_t	ft_size_count_base(unsigned long long lln, unsigned int base)
 {
-	while (*str)
+	size_t	count;
+
+	count = 1;
+	while (lln >= base)
 	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
+		count++;
+		lln /= base;
 	}
-	if (*str == c)
-		return ((char *)str);
-	return (NULL);
+	return (count);
 }

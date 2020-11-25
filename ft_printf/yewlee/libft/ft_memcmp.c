@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yewlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 16:11:54 by junghkim          #+#    #+#             */
-/*   Updated: 2020/11/03 07:11:16 by junghkim         ###   ########.fr       */
+/*   Created: 2020/07/03 09:40:47 by yewlee            #+#    #+#             */
+/*   Updated: 2020/07/03 10:23:57 by yewlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 {
-	while (*str)
+	size_t	i;
+
+	i = 0;
+	while (i < num)
 	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
+		if (((unsigned char*)ptr1)[i] != ((unsigned char*)ptr2)[i])
+			return (((unsigned char*)ptr1)[i] - ((unsigned char*)ptr2)[i]);
+		i++;
 	}
-	if (*str == c)
-		return ((char *)str);
-	return (NULL);
+	return (0);
 }

@@ -3,24 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yewlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 16:11:54 by junghkim          #+#    #+#             */
-/*   Updated: 2020/11/03 07:11:16 by junghkim         ###   ########.fr       */
+/*   Created: 2020/06/29 17:03:44 by yewlee            #+#    #+#             */
+/*   Updated: 2020/07/11 10:43:34 by yewlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int tofind)
 {
-	while (*str)
+	int	i;
+	int	len;
+
+	i = 0;
+	len = ft_strlen(str);
+	while (i <= len)
 	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
+		if (str[i] == (char)tofind)
+			return ((char*)&str[i]);
+		i++;
 	}
-	if (*str == c)
-		return ((char *)str);
-	return (NULL);
+	return (0);
 }

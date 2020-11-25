@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yewlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 16:11:54 by junghkim          #+#    #+#             */
-/*   Updated: 2020/11/03 07:11:16 by junghkim         ###   ########.fr       */
+/*   Created: 2020/06/29 16:11:19 by yewlee            #+#    #+#             */
+/*   Updated: 2020/11/25 12:29:31 by yewlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (src[i])
 	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
+		dest[i] = src[i];
+		i++;
 	}
-	if (*str == c)
-		return ((char *)str);
-	return (NULL);
+	dest[i] = '\0';
+	return (dest);
 }

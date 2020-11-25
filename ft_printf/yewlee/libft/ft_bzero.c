@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yewlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 16:11:54 by junghkim          #+#    #+#             */
-/*   Updated: 2020/11/03 07:11:16 by junghkim         ###   ########.fr       */
+/*   Created: 2020/06/29 16:57:37 by yewlee            #+#    #+#             */
+/*   Updated: 2020/07/03 10:52:13 by yewlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_bzero(void *ptr, size_t num)
 {
-	while (*str)
+	size_t	i;
+
+	i = 0;
+	while (i < num)
 	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
+		((char*)ptr)[i] = 0;
+		i++;
 	}
-	if (*str == c)
-		return ((char *)str);
-	return (NULL);
 }
