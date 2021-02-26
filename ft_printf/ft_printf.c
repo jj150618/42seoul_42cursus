@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		find_format(char *format, int i)
+int		check_format(const char *format, int i)
 {
 	while (format[++i])
 		if (ft_strchr("cspdiouxXn%", format[i]) != 0) // cspdiouxXn% cspdiuxX
@@ -34,7 +34,7 @@ int		ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			j = find_format((char*)format, i);
+			j = check_format(format, i);
 			if (j == -1 || parse((char*)format + i + 1, &lst, &count, j - i))
 				return (-1);
 			i = j + 1;
