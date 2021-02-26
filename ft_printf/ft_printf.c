@@ -15,8 +15,8 @@
 int		find_format(char *format, int i)
 {
 	while (format[++i])
-		if (ft_strchr("cspdiuxX%", format[j]) != 0) // cspdiouxXn%
-			return (j);
+		if (ft_strchr("cspdiuxX%", format[i]) != 0) // cspdiouxXn%
+			return (i);
 	return (-1);
 }
 
