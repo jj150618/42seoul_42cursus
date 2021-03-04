@@ -1,21 +1,11 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: yewlee <marvin@42.fr>                      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/07/14 17:36:25 by yewlee            #+#    #+#              #
-#    Updated: 2020/07/14 17:40:26 by yewlee           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c parse1.c parse2.c  print_format.c handle_con.c \
+SRCS = ft_printf.c parse.c print_format.c handle_con.c \
 	   handle_flag.c handle_length.c handle_exception.c
 OBJS = $(SRCS:.c=.o)
 

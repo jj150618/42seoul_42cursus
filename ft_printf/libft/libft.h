@@ -67,16 +67,4 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
-size_t				ft_size_count(long long lln);
-char				*ft_uitoa(unsigned int n);
-size_t				ft_size_count_base(unsigned long long lln, unsigned int base);
-char				*ft_uitoa_base(unsigned int n, unsigned int base);
-char				*ft_ulltoa_base(unsigned long long n, unsigned int base);
-char				*ft_strcpy(char *dest, const char *src);
-int					ft_strcmp(const char *s1, const char *s2);
-char				*ft_ulltoa(unsigned long long n);
-size_t				ft_size_ucount(unsigned long long lln);
-double				ft_pow(double num, int pow);
-double				ft_floor(double num);
-double				ft_round(double num, int digit);
 #endif

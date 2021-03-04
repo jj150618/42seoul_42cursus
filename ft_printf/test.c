@@ -1,14 +1,10 @@
-#include <stdio.h>
-#include <unistd.h>
+#include<stdio.h>
 
 int main()
 {
-	int a;
-	int b;
-	a = 123456;
-	b = printf("a% abbcc%d",a);
-	printf("\n%d\n", b);
-	b = write(1, "abc", 1);
-	printf("\n%     d\n", b);
-	printf("%");
+    char *a;
+    char b = 30;
+
+    a = &b;
+    printf("%d    %p\n",a, a);
 }

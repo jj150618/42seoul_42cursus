@@ -35,17 +35,7 @@ SRCS	= ./ft_memset.c \
 		  ./ft_putchar_fd.c \
 		  ./ft_putstr_fd.c \
 		  ./ft_putendl_fd.c \
-		  ./ft_putnbr_fd.c \
-		  ./ft_strcmp.c \
-		  ./ft_strcpy.c \
-		  ./ft_ulltoa.c \
-		  ./ft_ulltoa_base.c\
-		  ./ft_floor.c \
-		  ./ft_pow.c \
-		  ./ft_round.c \
-		  ./ft_size_count_base.c \
-		  ./ft_size_count.c \
-		  ./ft_size_ucount.c
+		  ./ft_putnbr_fd.c
 SRCS_B = ./ft_lstnew.c \
 		 ./ft_lstadd_front.c \
 		 ./ft_lstsize.c \

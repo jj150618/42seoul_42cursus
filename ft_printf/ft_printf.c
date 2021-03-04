@@ -15,27 +15,27 @@
 int		check_format(const char *format, int i)
 {
 	while (format[++i])
-		if (ft_strchr("cspdiouxXn%", format[i]) != 0) // cspdiouxXn% cspdiuxX
+		if (ft_strchr(TYPE, format[i]) != 0)
 			return (i);
 	return (-1);
 }
 
 int		ft_printf(const char *format, ...)
 {
-	va_list	lst;
+	va_list	ap;
 	int		i;
 	int		j;
 	int		count;
 
 	i = 0;
 	count = 0;
-	va_start(lst, format);
+	va_start(ap, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			j = check_format(format, i);
-			if (j == -1 || parse((char*)format + i + 1, &lst, &count, j - i))
+			if (j == -1 || parse((char*)format + i + 1, &ap, &count, j - i))
 				return (-1);
 			i = j + 1;
 		}
@@ -45,6 +45,6 @@ int		ft_printf(const char *format, ...)
 			i++;
 		}
 	}
-	va_end(lst);
+	va_end(ap);
 	return (count);
 }

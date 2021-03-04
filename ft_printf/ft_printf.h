@@ -19,58 +19,54 @@
 # include <stdlib.h>
 # include "./libft/libft.h"
 
-typedef	struct		s_format
+# define TYPE "cspdiuxX%"
+
+typedef	struct		s_info
 {
 	char			conversion;
-	char			*length;
 	char			*suffix;
 	int				is_minus;
-	int				is_plus;
-	int				is_space;
-	int				is_sharp;
 	int				is_zero;
 	int				width;
 	int				precision;
 	int				error;
-}					t_format;
+}					t_info;
 
-size_t				ft_strlen(const char *str);
-char				*ft_strcpy(char *dest, const char *src);
-int					ft_strcmp(const char *str1, const char *str2);
-char				*ft_strchr(const char *str, int tofind);
-int					ft_isdigit(int value);
-int					ft_toupper(int value);
-char				*ft_strdup(const char *str);
-char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_ulltoa(unsigned long long n);
-char				*ft_ulltoa_base(unsigned long long n, unsigned int base);
-
-void				init(t_format *t);
-int					parse(char *format, va_list *lst, int *count, int end);
-void				parse_flag(t_format *t, char c);
-void				parse_star(t_format *t, va_list *lst, char *format, \
+void				init_info(t_info *info);
+int					parse(char *format, va_list *ap, int *count, int end);
+void				parse_flag(t_info *info, char c);
+void				parse_star(t_info *info, va_list *ap, char *format, \
 					int start);
-void				parse_wp(t_format *t, char *format, int *start, int end);
-void				parse_length(t_format *t, char *format, int *start);
-char				*handle_con(t_format *t, va_list *lst, int *len, \
+void				parse_wp(t_info *info, char *format, int *start, int end);
+char				*handle_con(t_info *info, va_list *ap, int *len, \
 					int *count);
-char				*handle_con1(t_format *t, va_list *lst, int *len);
-char				*handle_con2(t_format *t, va_list *lst, int *len);
-char				*handle_con3(t_format *t, va_list *lst, int *len);
-int					handle_flag1(t_format *t, char *str);
-void				handle_flag2(t_format *t, char *str, char **suffix, \
-					int start);
-void				handle_prec1(char **str, t_format *t, int *len, \
+char				*handle_con1(t_info *info, va_list *ap, int *len);
+char				*handle_con2(t_info *info, va_list *ap, int *len);
+char				*handle_con3(t_info *info, va_list *ap, int *len);
+int					handle_flag(t_info *info, char *str);
+void				handle_prec1(char **str, t_info *info, int *len, \
 					int *s_len);
-void				handle_prec2(char **str, t_format *t, int *len);
-long long			handle_length1(t_format *t, va_list *lst);
-unsigned long long	handle_length2(t_format *t, va_list *lst);
-char				*handle_malloc_fail(t_format *t);
+void				handle_prec2(char **str, t_info *info, int *len);
+char				*handle_malloc_fail(t_info *info);
 int					handle_return_fail(char *str, char *suffix);
-void				handle_exception(t_format *t, char **str, int *len);
-int					print_format(t_format *t, va_list *lst, int *count);
-void				print_with_flag(t_format *t, char *str, int *len, \
+void				handle_exception(t_info *info, char **str, int *len);
+int					print_info(t_info *info, va_list *ap, int *count);
+void				print_with_flag(t_info *info, char *str, int *len, \
 					int s_len);
-int					find_format(char *format, int i);
+int					check_format(const char *format, int i);
 int					ft_printf(const char *format, ...);
+
+size_t				ft_size_count(long long lln);
+char				*ft_uitoa(unsigned int n);
+size_t				ft_size_count_base(unsigned long long lln, unsigned int base);
+char				*ft_uitoa_base(unsigned int n, unsigned int base);
+char				*ft_ulltoa_base(unsigned long long n, unsigned int base);
+char				*ft_strcpy(char *dest, const char *src);
+int					ft_strcmp(const char *s1, const char *s2);
+char				*ft_ulltoa(unsigned long long n);
+size_t				ft_size_ucount(unsigned long long lln);
+double				ft_pow(double num, int pow);
+double				ft_floor(double num);
+double				ft_round(double num, int digit);
+int					ft_strcmp(const char *s1, const char *s2);
 #endif
