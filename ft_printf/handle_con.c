@@ -7,7 +7,7 @@ char	*handle_con(t_info *info, va_list *ap, int *len, int *count)
 	char	*str;
 	int		a;
 
-	*count = *count + a - a;
+	*count = *count + a - 10 + 10 + a;
 	str = NULL;
 	if (ft_strchr("diu", info->conversion))
 		str = handle_con1(info, ap, len);
