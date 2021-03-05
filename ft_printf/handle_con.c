@@ -5,7 +5,9 @@
 char	*handle_con(t_info *info, va_list *ap, int *len, int *count)
 {
 	char	*str;
+	int		a;
 
+	*count = *count + a - a;
 	str = NULL;
 	if (ft_strchr("diu", info->conversion))
 		str = handle_con1(info, ap, len);
@@ -34,8 +36,8 @@ char	*handle_con1(t_info *info, va_list *ap, int *len)
 	else
 		d = va_arg(*ap, unsigned int);
 	if (!(str = ft_ulltoa((unsigned long long)d)))
-		return (handle_malloc_fail(t));
-	handle_exception(t, &str, len);
+		return (handle_malloc_fail(info));
+	handle_exception(info, &str, len);
 	*len = ft_strlen(str);
 	return (str);
 }
@@ -48,19 +50,19 @@ char	*handle_con2(t_info *info, va_list *ap, int *len)
 	char				*str;
 
 	i = 0;
-	base = (info->conversion == 'o') ? 8 : 16;
+	base = 16;
 	if (info->conversion == 'p')
 		d = va_arg(*ap, unsigned long);
 	else
 		d = va_arg(*ap, unsigned int);
 	if (!(str = ft_ulltoa_base(d, base)))
-		return (handle_malloc_fail(t));
+		return (handle_malloc_fail(info));
 	while (info->conversion == 'X' && str[i])
 	{
 		str[i] = ft_toupper(str[i]);
 		i++;
 	}
-	handle_exception(t, &str, len);
+	handle_exception(info, &str, len);
 	*len = ft_strlen(str);
 	return (str);
 }
@@ -88,8 +90,8 @@ char	*handle_con3(t_info *info, va_list *ap, int *len)
 	else
 		str = ft_strdup("%");
 	if (!str)
-		return (handle_malloc_fail(t));
+		return (handle_malloc_fail(info));
 	*len = ft_strlen(str);
-	handle_exception(t, &str, len);
+	handle_exception(info, &str, len);
 	return (str);
 }

@@ -26,18 +26,18 @@ int		parse(char *format, va_list *ap, int *count, int end)
 	while (i < end)
 	{
 		if (ft_strchr("-0", format[i]))
-			parse_flag(info, format[i]);
+			parse_flag(&info, format[i]);
 		else if (format[i] == '*')
-			parse_star(info, ap, format, i);
+			parse_star(&info, ap, format, i);
 		else if (format[i] == '.' || (format[i] != '0' && \
 				ft_isdigit(format[i])))
 		{
-			parse_wp(info, format, &i, end);
+			parse_wp(&info, format, &i, end);
 			continue ;
 		}
 		i++;
 	}
-	return (print_format(info, ap, count));
+	return (print_format(&info, ap, count));
 }
 
 void	parse_flag(t_info *info, char c)
@@ -66,7 +66,7 @@ void	parse_star(t_info *info, va_list *ap, char *format, int start)
 			info->width *= (-1);
 			info->is_minus = 1;
 		}
-	}0
+	}
 }
 
 void	parse_wp(t_info *info, char *format, int *start, int end)
