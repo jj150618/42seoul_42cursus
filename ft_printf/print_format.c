@@ -34,7 +34,7 @@ int		print_format(t_info *info, va_list *ap, int *count)
 	char	*str;
 
 	len = 0;
-	str = handle_con(info, ap, &len, count);
+	str = handle_con(info, ap, &len);
 	s_len = handle_flag1(info);
 	if (info->error)
 		return (handle_return_fail(str, info->suffix));

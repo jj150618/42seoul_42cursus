@@ -39,8 +39,7 @@ void				parse_star(t_info *info, va_list *ap, char *format, \
 					int start);
 void				parse_wp(t_info *info, char *format, int *start, int end);
 int					print_format(t_info *info, va_list *ap, int *count);
-char				*handle_con(t_info *info, va_list *ap, int *len, \
-					int *count);
+char				*handle_con(t_info *info, va_list *ap, int *len);
 char				*handle_con1(t_info *info, va_list *ap, int *len);
 char				*handle_con2(t_info *info, va_list *ap, int *len);
 char				*handle_con3(t_info *info, va_list *ap, int *len);
