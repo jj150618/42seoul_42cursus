@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_format.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <junghkim@student.42seoul.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/06 14:39:39 by junghkim          #+#    #+#             */
+/*   Updated: 2021/03/06 14:40:46 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -31,7 +42,7 @@ void	print_with_flag(t_info *info, char *str, int *len, int s_len)
 int		print_format(t_info *info, va_list *ap, int *count)
 {
 	int		len;
-	int		s_len; 
+	int		s_len;
 	char	*str;
 
 	len = 0;
