@@ -1,5 +1,4 @@
 
-
 #include "ft_printf.h"
 
 int		control_flag1(t_info *info)

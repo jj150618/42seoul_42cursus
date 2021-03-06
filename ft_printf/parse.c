@@ -1,5 +1,4 @@
 
-
 #include "ft_printf.h"
 
 void	init_info(t_info *info)
@@ -18,9 +17,7 @@ int		parse(char *format, va_list *ap, int *count, int end)
 	int			i;
 	t_info		info;
 
-	i = 0
-	
-	;
+	i = 0;
 	init_info(&info);
 	info.conversion = format[end - 1];
 	while (i < end)
@@ -29,7 +26,8 @@ int		parse(char *format, va_list *ap, int *count, int end)
 			check_flag(&info, format[i]);
 		else if (format[i] == '*')
 			check_star(&info, ap, format, i);
-		else if (format[i] == '.' || (format[i] != '0' && ft_isdigit(format[i])))
+		else if (format[i] == '.' || (format[i] != '0' \
+		&& ft_isdigit(format[i])))
 		{
 			check_width_prec(&info, format, &i, end);
 			continue ;

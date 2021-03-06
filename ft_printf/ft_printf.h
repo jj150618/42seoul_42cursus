@@ -37,7 +37,8 @@ int					parse(char *format, va_list *ap, int *count, int end);
 void				check_flag(t_info *info, char c);
 void				check_star(t_info *info, va_list *ap, char *format, \
 					int start);
-void				check_width_prec(t_info *info, char *format, int *start, int end);
+void				check_width_prec(t_info *info, char *format, \
+					int *start, int end);
 int					print_format(t_info *info, va_list *ap, int *count);
 char				*control_format(t_info *info, va_list *ap, int *len);
 char				*control_format1(t_info *info, va_list *ap, int *len);
@@ -58,7 +59,8 @@ int					check_format(const char *format, int i);
 int					ft_printf(const char *format, ...);
 
 size_t				ft_size_count(long long lln);
-size_t				ft_size_count_base(unsigned long long lln, unsigned int base);
+size_t				ft_size_count_base(unsigned long long lln, \
+					unsigned int base);
 char				*ft_uitoa_base(unsigned int n, unsigned int base);
 char				*ft_ulltoa_base(unsigned long long n, unsigned int base);
 char				*ft_strcpy(char *dest, const char *src);

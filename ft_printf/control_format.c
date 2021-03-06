@@ -1,5 +1,4 @@
 
-
 #include "ft_printf.h"
 
 char	*control_format(t_info *info, va_list *ap, int *len)

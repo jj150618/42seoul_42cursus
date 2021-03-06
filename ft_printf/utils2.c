@@ -14,7 +14,6 @@ size_t	ft_size_ucount(unsigned long long lln)
 	return (count);
 }
 
-
 size_t	ft_size_count(long long lln)
 {
 	size_t	count;
