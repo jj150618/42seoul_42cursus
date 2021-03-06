@@ -7,10 +7,10 @@ void	print_with_flag(t_info *info, char *str, int *len, int s_len)
 	int		flag;
 	char	c;
 
-	flag = (info->is_zero && !info->precision && ft_strchr("diuxXs", info->conversion));
+	flag = (info->zero && !info->precision && ft_strchr("diuxXs", info->conversion));
 	temp = *len;
-	c = (flag || (info->is_zero && info->conversion == '%')) ? '0' : ' ';
-	while (!info->is_minus && info->width > (*len + s_len))
+	c = (flag || (info->zero && info->conversion == '%')) ? '0' : ' ';
+	while (!info->minus && info->width > (*len + s_len))
 	{
 		if (flag == 1)
 		{
@@ -22,7 +22,7 @@ void	print_with_flag(t_info *info, char *str, int *len, int s_len)
 	if (flag != -1)
 		write(1, info->suffix, s_len);
 	write(1, str, temp);
-	while (info->is_minus && info->width > (*len + s_len))
+	while (info->minus && info->width > (*len + s_len))
 		(*len) += write(1, " ", 1);
 	(*len) += s_len;
 }
@@ -34,17 +34,17 @@ int		print_format(t_info *info, va_list *ap, int *count)
 	char	*str;
 
 	len = 0;
-	str = handle_con(info, ap, &len);
-	s_len = handle_flag1(info);
+	str = control_format(info, ap, &len);
+	s_len = control_flag1(info);
 	if (info->error)
-		return (handle_return_fail(str, info->suffix));
+		return (control_return_fail(str, info->suffix));
 	if ((ft_strchr("diuxX", info->conversion) && info->precision > len) || \
 		info->conversion == 'p')
-		handle_prec1(&str, info, &len, &s_len);
+		control_prec1(&str, info, &len, &s_len);
 	else if (info->conversion == 's' && info->precision && info->precision < len)
-		handle_prec2(&str, info, &len);
+		control_prec2(&str, info, &len);
 	if (info->error)
-		return (handle_return_fail(str, info->suffix));
+		return (control_return_fail(str, info->suffix));
 	else if (str)
 	{
 		print_with_flag(info, str, &len, s_len);

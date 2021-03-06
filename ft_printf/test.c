@@ -32,4 +32,6 @@ int main()
     printf("%d\n", aa);
     aa = printf("%p, %x, %p, %x, %p, %x, %p, %x", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0);
     printf("%d\n", aa);
+
+    printf("%% *.5i 42 == |% *.5i|", 4, 42);
 }

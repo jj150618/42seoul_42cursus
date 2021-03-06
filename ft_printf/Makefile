@@ -5,10 +5,10 @@ NAME = libftprintf.a
 SRCS	= ./ft_printf.c \
 		  ./parse.c \
 		  ./print_format.c \
-		  ./handle_con.c \
-		  ./handle_flag.c \
-		  ./handle_exception.c \
-		  ./ft_count.c
+		  ./control_format.c \
+		  ./control_flag_prec.c \
+		  ./utils1.c \
+		  ./utils2.c
 OBJS = $(SRCS:.c=.o)
 
 LIB_DIR = ./libft

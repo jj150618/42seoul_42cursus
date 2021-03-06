@@ -2,7 +2,7 @@
 
 #include "ft_printf.h"
 
-int		handle_flag1(t_info *info)
+int		control_flag1(t_info *info)
 {
 	int		start;
 	char	*suffix;
@@ -15,12 +15,12 @@ int		handle_flag1(t_info *info)
 	}
 	if (info->suffix)
 		suffix[start++] = '-';
-	handle_flag2(info, &suffix, start);
+	control_flag2(info, &suffix, start);
 	info->suffix = suffix;
 	return (ft_strlen(suffix));
 }
 
-void	handle_flag2(t_info *info, char **suffix, int start)
+void	control_flag2(t_info *info, char **suffix, int start)
 {
 	if (info->conversion == 'p')
 	{
@@ -30,7 +30,7 @@ void	handle_flag2(t_info *info, char **suffix, int start)
 	(*suffix)[start] = '\0';
 }
 
-void	handle_prec1(char **str, t_info *info, int *len, int *s_len)
+void	control_prec1(char **str, t_info *info, int *len, int *s_len)
 {
 	int		max;
 	char	*temp;
@@ -55,7 +55,7 @@ void	handle_prec1(char **str, t_info *info, int *len, int *s_len)
 	free(temp);
 }
 
-void	handle_prec2(char **str, t_info *info, int *len)
+void	control_prec2(char **str, t_info *info, int *len)
 {
 	char	*temp;
 

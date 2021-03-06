@@ -1,13 +1,13 @@
 
 #include "ft_printf.h"
 
-char	*handle_malloc_fail(t_info *info)
+char	*control_malloc_fail(t_info *info)
 {
 	info->error = 1;
 	return (NULL);
 }
 
-int		handle_return_fail(char *str, char *suffix)
+int		control_return_fail(char *str, char *suffix)
 {
 	if (str)
 		free(str);
@@ -16,7 +16,7 @@ int		handle_return_fail(char *str, char *suffix)
 	return (-1);
 }
 
-void	handle_exception(t_info *info, char **str, int *len)
+void	control_exception(t_info *info, char **str, int *len)
 {
 	char	*temp;
 

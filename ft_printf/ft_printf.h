@@ -25,8 +25,8 @@ typedef	struct		s_info
 {
 	char			conversion;
 	char			*suffix;
-	int				is_minus;
-	int				is_zero;
+	int				minus;
+	int				zero;
 	int				width;
 	int				precision;
 	int				error;
@@ -34,23 +34,23 @@ typedef	struct		s_info
 
 void				init_info(t_info *info);
 int					parse(char *format, va_list *ap, int *count, int end);
-void				parse_flag(t_info *info, char c);
-void				parse_star(t_info *info, va_list *ap, char *format, \
+void				check_flag(t_info *info, char c);
+void				check_star(t_info *info, va_list *ap, char *format, \
 					int start);
-void				parse_wp(t_info *info, char *format, int *start, int end);
+void				check_width_prec(t_info *info, char *format, int *start, int end);
 int					print_format(t_info *info, va_list *ap, int *count);
-char				*handle_con(t_info *info, va_list *ap, int *len);
-char				*handle_con1(t_info *info, va_list *ap, int *len);
-char				*handle_con2(t_info *info, va_list *ap, int *len);
-char				*handle_con3(t_info *info, va_list *ap, int *len);
-int					handle_flag1(t_info *info);
-void				handle_flag2(t_info *info, char **suffix, int start);
-void				handle_prec1(char **str, t_info *info, int *len, \
+char				*control_format(t_info *info, va_list *ap, int *len);
+char				*control_format1(t_info *info, va_list *ap, int *len);
+char				*control_format2(t_info *info, va_list *ap, int *len);
+char				*control_format3(t_info *info, va_list *ap, int *len);
+int					control_flag1(t_info *info);
+void				control_flag2(t_info *info, char **suffix, int start);
+void				control_prec1(char **str, t_info *info, int *len, \
 					int *s_len);
-void				handle_prec2(char **str, t_info *info, int *len);
-char				*handle_malloc_fail(t_info *info);
-int					handle_return_fail(char *str, char *suffix);
-void				handle_exception(t_info *info, char **str, int *len);
+void				control_prec2(char **str, t_info *info, int *len);
+char				*control_malloc_fail(t_info *info);
+int					control_return_fail(char *str, char *suffix);
+void				control_exception(t_info *info, char **str, int *len);
 int					print_info(t_info *info, va_list *ap, int *count);
 void				print_with_flag(t_info *info, char *str, int *len, \
 					int s_len);

@@ -5,9 +5,9 @@
 void	init_info(t_info *info)
 {
 	info->conversion = 0;
-	info->is_minus = 0;
+	info->minus = 0;
 	info->suffix = 0;
-	info->is_zero = 0;
+	info->zero = 0;
 	info->width = 0;
 	info->precision = 0;
 	info->error = 0;
@@ -25,14 +25,13 @@ int		parse(char *format, va_list *ap, int *count, int end)
 	info.conversion = format[end - 1];
 	while (i < end)
 	{
-		if (ft_strchr("-0", format[i]))
-			parse_flag(&info, format[i]);
+		if (format[i] == '0' || format[i] == '-')
+			check_flag(&info, format[i]);
 		else if (format[i] == '*')
-			parse_star(&info, ap, format, i);
-		else if (format[i] == '.' || (format[i] != '0' && \
-				ft_isdigit(format[i])))
+			check_star(&info, ap, format, i);
+		else if (format[i] == '.' || (format[i] != '0' && ft_isdigit(format[i])))
 		{
-			parse_wp(&info, format, &i, end);
+			check_width_prec(&info, format, &i, end);
 			continue ;
 		}
 		i++;
@@ -40,15 +39,15 @@ int		parse(char *format, va_list *ap, int *count, int end)
 	return (print_format(&info, ap, count));
 }
 
-void	parse_flag(t_info *info, char c)
+void	check_flag(t_info *info, char c)
 {
 	if (c == '-')
-		info->is_minus = 1;
+		info->minus = 1;
 	else if (c == '0')
-		info->is_zero = 1;
+		info->zero = 1;
 }
 
-void	parse_star(t_info *info, va_list *ap, char *format, int start)
+void	check_star(t_info *info, va_list *ap, char *format, int start)
 {
 	if (format[start - 1] == '.')
 	{
@@ -64,12 +63,12 @@ void	parse_star(t_info *info, va_list *ap, char *format, int start)
 		if (info->width < 0)
 		{
 			info->width *= (-1);
-			info->is_minus = 1;
+			info->minus = 1;
 		}
 	}
 }
 
-void	parse_wp(t_info *info, char *format, int *start, int end)
+void	check_width_prec(t_info *info, char *format, int *start, int end)
 {
 	int	res;
 	int	sign;
