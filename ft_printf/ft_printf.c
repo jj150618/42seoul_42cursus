@@ -30,7 +30,7 @@ int		ft_printf(const char *format, ...)
 	i = 0;
 	count = 0;
 	va_start(ap, format);
-	while (format[i])  ////// asdfasasdf%-10s
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{

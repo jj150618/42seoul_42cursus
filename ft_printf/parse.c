@@ -28,6 +28,7 @@ int		parse(char *format, va_list *ap, int *count, int end)
 	int			i;
 	t_info		info;
 
+
 	i = 0;   
 	init_info(&info);
 	info.conversion = format[end - 1];
