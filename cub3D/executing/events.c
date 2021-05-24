@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-void	cleanclose(t_adata *a)
+void	cleanclose(t_data *a)
 {
 	free(a->parse.no_text);
 	free(a->parse.so_text);
@@ -25,7 +25,7 @@ void	cleanclose(t_adata *a)
 	exit(EXIT_SUCCESS);
 }
 
-int		clicked_cross(int keycode, t_adata *a)
+int		clicked_cross(int keycode, t_data *a)
 {
 	(void)keycode;
 	(void)a;
@@ -33,7 +33,7 @@ int		clicked_cross(int keycode, t_adata *a)
 	return (0);
 }
 
-int		butt_released(int keycode, t_adata *a)
+int		butt_released(int keycode, t_data *a)
 {
 	if (keycode == W_KEY)
 		a->joe.walkdir = 0;
@@ -50,7 +50,7 @@ int		butt_released(int keycode, t_adata *a)
 	return (0);
 }
 
-int		butt_pressed(int keycode, t_adata *a)
+int		butt_pressed(int keycode, t_data *a)
 {
 	if (keycode == ESC_KEY)
 		cleanclose(a);

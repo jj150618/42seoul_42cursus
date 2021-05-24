@@ -22,7 +22,7 @@ int		bitmap_offset_sp(t_item *item, int col_id)
 	return (offset);
 }
 
-int		bitmap_offset(t_ray *ray, t_adata *a)
+int		bitmap_offset(t_ray *ray, t_data *a)
 {
 	double	ray_x;
 	double	ray_y;

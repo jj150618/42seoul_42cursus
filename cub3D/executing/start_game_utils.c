@@ -47,7 +47,7 @@ void		ft_playerinfo(t_map2d *map, t_player *joe, char **strs)
 	}
 }
 
-double		calculate_tilesize(t_adata *a)
+double		calculate_tilesize(t_data *a)
 {
 	int		map_resratio_x;
 	int		map_resratio_y;

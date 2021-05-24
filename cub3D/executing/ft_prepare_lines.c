@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		ft_prepare_sprite_line(t_item *item, t_adata *a,
+int		ft_prepare_sprite_line(t_item *item, t_data *a,
 		int col_id)
 {
 	double		line_height;
@@ -35,7 +35,7 @@ int		ft_prepare_sprite_line(t_item *item, t_adata *a,
 	return (0);
 }
 
-int		ft_prepare_3d_line(double ray_angle, t_ray *ray, t_adata *a, int col_id)
+int		ft_prepare_3d_line(double ray_angle, t_ray *ray, t_data *a, int col_id)
 {
 	double		line_height;
 	double		nofish_dist;
@@ -61,7 +61,7 @@ int		ft_prepare_3d_line(double ray_angle, t_ray *ray, t_adata *a, int col_id)
 	return (0);
 }
 
-int		ft_init_line(t_adata *a)
+int		ft_init_line(t_data *a)
 {
 	a->line.start_x = a->joe.x;
 	a->line.start_y = a->joe.y;

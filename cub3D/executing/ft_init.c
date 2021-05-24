@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		ft_init_sprites(t_adata *a)
+int		ft_init_sprites(t_data *a)
 {
 	a->sps.number = ft_countsprites(a->map.maptxt);
 	a->sps.items = malloc(sizeof(t_item) * (a->sps.number));
@@ -20,7 +20,7 @@ int		ft_init_sprites(t_adata *a)
 	return (0);
 }
 
-int		ft_init_texts(t_adata *a)
+int		ft_init_texts(t_data *a)
 {
 	ft_init_text(a, &a->notext.imgt, a->parse.no_text);
 	ft_init_text(a, &a->sotext.imgt, a->parse.so_text);
@@ -29,7 +29,7 @@ int		ft_init_texts(t_adata *a)
 	return (0);
 }
 
-void	ft_init_player(t_adata *a)
+void	ft_init_player(t_data *a)
 {
 	ft_playerinfo(&a->map, &a->joe, a->map.maptxt);
 	a->joe.radius = a->map.tile_size / 6;
@@ -39,7 +39,7 @@ void	ft_init_player(t_adata *a)
 	a->joe.rotatespeed = 7 * (M_PI / 180);
 }
 
-void	ft_init_map(t_adata *a)
+void	ft_init_map(t_data *a)
 {
 	a->map.maptxt = a->parse.mapstr;
 	a->map.map_rows = ft_count_lines(a->map.maptxt);
@@ -49,7 +49,7 @@ void	ft_init_map(t_adata *a)
 	a->map.map_w = a->map.map_cols * a->map.tile_size;
 }
 
-void	ft_init_win(t_adata *a)
+void	ft_init_win(t_data *a)
 {
 	int		max_x;
 	int		max_y;

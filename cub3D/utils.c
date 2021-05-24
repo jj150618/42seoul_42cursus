@@ -48,13 +48,13 @@ void	free_all_strs(char **strs)
 	}
 }
 
-int	ft_error(int errornbr)
+int	ft_error(int error)
 {
-	if (errornbr == WRONG_CUB)
+	if (error == WRONG_CUB)
 		write(1, "please check the file's name", 29);
-	if (errornbr == WRONG_FILE)
+	if (error == WRONG_FILE)
 		write(1, "please check the file", 13);
-	if (errornbr == PARSING_ERROR)
+	if (error == PARSING_ERROR)
 		write(1, "An error occurred during parsing", 33);
 	return (0);
 }

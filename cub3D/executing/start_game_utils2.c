@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		find_text_wallhit(double ray_angle, t_ray *ray, t_adata *a)
+int		find_text_wallhit(double ray_angle, t_ray *ray, t_data *a)
 {
 	if (ray->hit_vertical)
 	{
@@ -33,7 +33,7 @@ int		find_text_wallhit(double ray_angle, t_ray *ray, t_adata *a)
 	return (0);
 }
 
-int		has_wall(double x, double y, t_adata *a)
+int		has_wall(double x, double y, t_data *a)
 {
 	int		mapgridx;
 	int		mapgridy;
@@ -64,7 +64,7 @@ double	distancepoints(double x1, double y1, double x2, double y2)
 	return (sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2)));
 }
 
-int		ft_init_text(t_adata *a, t_img *imgt, char *textpath)
+int		ft_init_text(t_data *a, t_img *imgt, char *textpath)
 {
 	imgt->ptr = mlx_xpm_file_to_image(a->win.mlx,
 	textpath, &imgt->width, &imgt->height);

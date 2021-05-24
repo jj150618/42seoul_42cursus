@@ -20,7 +20,7 @@ int		is_sprite_stripe(t_item *item, int col_id)
 		return (0);
 }
 
-int		add_sprites(t_item *items, char **strs, t_adata *a)
+int		add_sprites(t_item *items, char **strs, t_data *a)
 {
 	int		i;
 	int		j;

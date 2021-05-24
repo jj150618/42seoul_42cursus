@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		spritescreenposition(t_item *item, t_adata *a)
+int		spritescreenposition(t_item *item, t_data *a)
 {
 	double	centersprite;
 
@@ -30,7 +30,7 @@ int		spritescreenposition(t_item *item, t_adata *a)
 	return (0);
 }
 
-int		sps_pos_on_screen(t_item *item, t_adata *a)
+int		sps_pos_on_screen(t_item *item, t_data *a)
 {
 	int		i;
 
@@ -44,7 +44,7 @@ int		sps_pos_on_screen(t_item *item, t_adata *a)
 	return (0);
 }
 
-int		sort_sps(t_item *items, t_adata *a)
+int		sort_sps(t_item *items, t_data *a)
 {
 	int		further;
 	int		check;
@@ -70,7 +70,7 @@ int		sort_sps(t_item *items, t_adata *a)
 	return (0);
 }
 
-int		update_info_sps(t_item **item, t_adata *a)
+int		update_info_sps(t_item **item, t_data *a)
 {
 	int			i;
 	double		sp_anglemap;
@@ -96,7 +96,7 @@ int		update_info_sps(t_item **item, t_adata *a)
 	return (0);
 }
 
-int		update_sprites(t_adata *a)
+int		update_sprites(t_data *a)
 {
 	update_info_sps(&a->sps.items, a);
 	sort_sps(a->sps.items, a);

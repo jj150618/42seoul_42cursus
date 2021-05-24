@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-void	ft_init_all(t_adata *a)
+void	ft_init_all(t_data *a)
 {
 	ft_init_win(a);
 	ft_init_map(a);
@@ -22,7 +22,7 @@ void	ft_init_all(t_adata *a)
 	ft_init_sprites(a);
 }
 
-int		render_next_frame(t_adata *a)
+int		render_next_frame(t_data *a)
 {
 	ft_init_img_3d(a);
 	ft_update_player(a);
@@ -36,7 +36,7 @@ int		render_next_frame(t_adata *a)
 	return (0);
 }
 
-int		start_game(t_adata *a)
+int		start_game(t_data *a)
 {
 	ft_init_all(a);
 	mlx_do_key_autorepeatoff(a->win.mlx);

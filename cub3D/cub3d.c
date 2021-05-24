@@ -15,7 +15,7 @@
 int		cub3d(char *cubname)
 {
 	int			fd;
-	t_adata		a;
+	t_data		a;
 
 	ft_start_map(&a.parse);
 	fd = open(cubname, O_RDONLY);

@@ -34,7 +34,7 @@ int		ray_construct(double ray_angle, t_ray *ray)
 	return (0);
 }
 
-int		vertical_cast(t_ray *ray, t_adata *a)
+int		vertical_cast(t_ray *ray, t_data *a)
 {
 	double	nexttouch_verx;
 	double	nexttouch_very;
@@ -45,7 +45,7 @@ int		vertical_cast(t_ray *ray, t_adata *a)
 	return (0);
 }
 
-int		horizontal_cast(t_ray *ray, t_adata *a)
+int		horizontal_cast(t_ray *ray, t_data *a)
 {
 	double	nexttouch_horx;
 	double	nexttouch_hory;
@@ -56,7 +56,7 @@ int		horizontal_cast(t_ray *ray, t_adata *a)
 	return (0);
 }
 
-int		dda_alg(t_ray *ray, t_adata *a)
+int		dda_alg(t_ray *ray, t_data *a)
 {
 	double horz_dist;
 	double vert_dist;
@@ -67,7 +67,7 @@ int		dda_alg(t_ray *ray, t_adata *a)
 	return (0);
 }
 
-int		draw3d(t_adata *a)
+int		draw3d(t_data *a)
 {
 	t_ray	ray;
 	int		col_id;

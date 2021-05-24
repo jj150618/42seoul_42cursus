@@ -13,7 +13,7 @@
 #include "start_game.h"
 
 int		linesprite(t_item *item,
-		t_adata *a, int col_id)
+		t_data *a, int col_id)
 {
 	double remain_pixels;
 	double pixelx;
@@ -40,7 +40,7 @@ int		linesprite(t_item *item,
 	return (0);
 }
 
-int		line3d(t_ray *ray, t_adata *a, t_text text_wallhit)
+int		line3d(t_ray *ray, t_data *a, t_text text_wallhit)
 {
 	double		remain_pixels;
 	double		pixelx;
@@ -69,7 +69,7 @@ int		line3d(t_ray *ray, t_adata *a, t_text text_wallhit)
 	return (0);
 }
 
-int		line(t_line line, t_adata *a)
+int		line(t_line line, t_data *a)
 {
 	double remain_pixels;
 	double pixelx;

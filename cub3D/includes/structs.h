@@ -162,7 +162,7 @@ typedef struct	s_sps
 	t_item		*items;
 }				t_sps;
 
-typedef struct	s_adata
+typedef struct	s_data
 {
 	t_parse		parse;
 	t_win		win;
@@ -180,6 +180,6 @@ typedef struct	s_adata
 	t_sps		sps;
 	t_line		line_sp;
 	t_img		imgflr;
-}				t_adata;
+}				t_data;
 
 #endif

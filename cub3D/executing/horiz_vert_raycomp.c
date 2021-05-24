@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-void	horiz_vert_raycomp(t_adata *a, t_ray *ray,
+void	horiz_vert_raycomp(t_data *a, t_ray *ray,
 		double *horz_dist, double *vert_dist)
 {
 	if (ray->found_hor_wall)

@@ -12,21 +12,21 @@
 
 #include "start_game.h"
 
-int		draw3dline(double ray_angle, t_ray *ray, t_adata *a, int col_id)
+int		draw3dline(double ray_angle, t_ray *ray, t_data *a, int col_id)
 {
 	ft_prepare_3d_line(ray_angle, ray, a, col_id);
 	line3d(ray, a, ray->text_wallhit);
 	return (0);
 }
 
-int		draw_comp_circle(int p_w, int p_h, t_adata *a)
+int		draw_comp_circle(int p_w, int p_h, t_data *a)
 {
 	if (sqrt(pow(a->joe.x - p_w, 2) + pow(a->joe.y - p_h, 2)) <= a->joe.radius)
 		a->img_3d.addr[(p_h * (int)a->win.win_w + p_w)] = 0xb87cb3;
 	return (0);
 }
 
-int		draw_comp_map(int p_w, int p_h, t_adata *a)
+int		draw_comp_map(int p_w, int p_h, t_data *a)
 {
 	int	cur_x;
 	int cur_y;
@@ -44,7 +44,7 @@ int		draw_comp_map(int p_w, int p_h, t_adata *a)
 	return (1);
 }
 
-int		draw_comp(t_adata *a, int (*comp)(int, int, t_adata *))
+int		draw_comp(t_data *a, int (*comp)(int, int, t_data *))
 {
 	int	pixel_w;
 	int	pixel_h;
@@ -63,7 +63,7 @@ int		draw_comp(t_adata *a, int (*comp)(int, int, t_adata *))
 	return (0);
 }
 
-int		draw_map(t_adata *a)
+int		draw_map(t_data *a)
 {
 	draw_comp(a, &draw_comp_map);
 	draw_comp(a, &draw_comp_circle);

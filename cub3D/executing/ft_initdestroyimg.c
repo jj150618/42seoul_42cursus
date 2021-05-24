@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		destroyimg(t_adata *a, t_img *img)
+int		destroyimg(t_data *a, t_img *img)
 {
 	mlx_destroy_image(a->win.mlx, img->ptr);
 	img->ptr = 0;
@@ -20,7 +20,7 @@ int		destroyimg(t_adata *a, t_img *img)
 	return (0);
 }
 
-void	ft_init_img_3d(t_adata *a)
+void	ft_init_img_3d(t_data *a)
 {
 	a->img_3d.ptr = mlx_new_image(a->win.mlx, a->win.win_w, a->win.win_h);
 	a->img_3d.addr = (int *)mlx_get_data_addr(a->img_3d.ptr,

@@ -20,7 +20,7 @@ static void		set_header(unsigned char *header, int param)
 	header[3] = (unsigned char)(param >> 24);
 }
 
-static void		init_header(t_adata *a, t_bmp *bmp)
+static void		init_header(t_data *a, t_bmp *bmp)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ static void		init_header(t_adata *a, t_bmp *bmp)
 	write(bmp->fd, bmp->infoheader, 40);
 }
 
-static void		draw_bmp(t_adata *a, t_bmp *bmp)
+static void		draw_bmp(t_data *a, t_bmp *bmp)
 {
 	int				i;
 	int				j;
@@ -71,7 +71,7 @@ static void		draw_bmp(t_adata *a, t_bmp *bmp)
 	}
 }
 
-void			convert_bmp(t_adata *a)
+void			convert_bmp(t_data *a)
 {
 	t_bmp	bmp;
 
@@ -88,7 +88,7 @@ void			convert_bmp(t_adata *a)
 void			screenshot(char *cubname)
 {
 	int			fd;
-	t_adata		a;
+	t_data		a;
 
 	ft_start_map(&a.parse);
 	fd = open(cubname, O_RDONLY);

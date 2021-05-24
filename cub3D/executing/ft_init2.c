@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-void	ft_init_rays(t_adata *a)
+void	ft_init_rays(t_data *a)
 {
 	a->ray.fov = 60 * (M_PI / 180);
 	a->ray.fovref_min = 2 * M_PI - (a->ray.fov / 2);

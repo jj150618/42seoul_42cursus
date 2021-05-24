@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		vertical_cast_facingright(t_adata *a, t_ray *ray,
+int		vertical_cast_facingright(t_data *a, t_ray *ray,
 		double *nexttouch_verx, double *nexttouch_very)
 {
 	if (!ray->facing_left)
@@ -37,7 +37,7 @@ int		vertical_cast_facingright(t_adata *a, t_ray *ray,
 	return (0);
 }
 
-int		vertical_cast_facingleft(t_adata *a, t_ray *ray,
+int		vertical_cast_facingleft(t_data *a, t_ray *ray,
 		double *nexttouch_verx, double *nexttouch_very)
 {
 	if (ray->facing_left)
@@ -62,7 +62,7 @@ int		vertical_cast_facingleft(t_adata *a, t_ray *ray,
 	return (0);
 }
 
-int		vertical_interstep(t_adata *a, t_ray *ray,
+int		vertical_interstep(t_data *a, t_ray *ray,
 		double *nexttouch_verx, double *nexttouch_very)
 {
 	double	inter_y;

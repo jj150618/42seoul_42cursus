@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-void	update_position(t_adata *a)
+void	update_position(t_data *a)
 {
 	double	movestep;
 	double	next_playerx;
@@ -40,7 +40,7 @@ void	update_position(t_adata *a)
 	}
 }
 
-void	update_orientation(t_adata *a)
+void	update_orientation(t_data *a)
 {
 	if (a->joe.turndir == 0)
 		return ;
@@ -48,7 +48,7 @@ void	update_orientation(t_adata *a)
 	(a->joe.turndir * a->joe.rotatespeed));
 }
 
-void	ft_update_player(t_adata *a)
+void	ft_update_player(t_data *a)
 {
 	update_orientation(a);
 	update_position(a);

@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		horizontal_cast_facingdown(t_adata *a, t_ray *ray,
+int		horizontal_cast_facingdown(t_data *a, t_ray *ray,
 		double *nexttouch_horx, double *nexttouch_hory)
 {
 	if (ray->facing_down)
@@ -37,7 +37,7 @@ int		horizontal_cast_facingdown(t_adata *a, t_ray *ray,
 	return (0);
 }
 
-int		horizontal_cast_facingup(t_adata *a, t_ray *ray,
+int		horizontal_cast_facingup(t_data *a, t_ray *ray,
 		double *nexttouch_horx, double *nexttouch_hory)
 {
 	if (!ray->facing_down)
@@ -62,7 +62,7 @@ int		horizontal_cast_facingup(t_adata *a, t_ray *ray,
 	return (0);
 }
 
-int		horizontal_interstep(t_adata *a, t_ray *ray,
+int		horizontal_interstep(t_data *a, t_ray *ray,
 		double *nexttouch_horx, double *nexttouch_hory)
 {
 	double	inter_y;

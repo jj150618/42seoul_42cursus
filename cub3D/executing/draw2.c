@@ -12,7 +12,7 @@
 
 #include "start_game.h"
 
-int		drawsps(t_ray *ray, t_adata *a, int col_id)
+int		drawsps(t_ray *ray, t_data *a, int col_id)
 {
 	int		i;
 
@@ -32,7 +32,7 @@ int		drawsps(t_ray *ray, t_adata *a, int col_id)
 	return (0);
 }
 
-int		draw_ceilingrgb(t_adata *a)
+int		draw_ceilingrgb(t_data *a)
 {
 	int			p_w;
 	int			p_h;
@@ -55,7 +55,7 @@ int		draw_ceilingrgb(t_adata *a)
 	return (0);
 }
 
-int		draw_floorrgb(t_adata *a)
+int		draw_floorrgb(t_data *a)
 {
 	int		p_w;
 	int		p_h;
