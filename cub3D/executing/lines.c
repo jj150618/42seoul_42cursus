@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:44:53 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 16:44:54 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:09:31 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		linesprite(t_item *item,
 	pixelx = a->line_sp.start_x;
 	pixely = a->line_sp.start_y;
 	texy = 0;
-	texx = bitmap_offset_sp(item, col_id);
+	texx = set_bitmap_sp(item, col_id);
 	remain_pixels = a->line_sp.pixels;
 	while (remain_pixels > 0)
 	{
@@ -51,7 +51,7 @@ int		line3d(t_ray *ray, t_data *a, t_text text_wallhit)
 	pixelx = a->line_3d.start_x;
 	pixely = a->line_3d.start_y;
 	texy = 0;
-	texx = bitmap_offset(ray, a);
+	texx = set_bitmap(ray, a);
 	remain_pixels = a->line_3d.pixels;
 	while (remain_pixels > 0)
 	{

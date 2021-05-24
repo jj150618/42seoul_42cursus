@@ -6,13 +6,13 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:43:42 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 16:43:42 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:09:27 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "start_game.h"
 
-int		bitmap_offset_sp(t_item *item, int col_id)
+int		set_bitmap_sp(t_item *item, int col_id)
 {
 	double	remainder;
 	double	offset;
@@ -22,7 +22,7 @@ int		bitmap_offset_sp(t_item *item, int col_id)
 	return (offset);
 }
 
-int		bitmap_offset(t_ray *ray, t_data *a)
+int		set_bitmap(t_ray *ray, t_data *a)
 {
 	double	ray_x;
 	double	ray_y;

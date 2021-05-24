@@ -6,20 +6,20 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:44:19 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/24 20:43:14 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:22:19 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "start_game.h"
 
-int		draw3dline(double ray_angle, t_ray *ray, t_data *a, int col_id)
+int		draw_3dline(double ray_angle, t_ray *ray, t_data *a, int col_id)
 {
 	ft_prepare_3d_line(ray_angle, ray, a, col_id);
 	line3d(ray, a, ray->text_wallhit);
 	return (0);
 }
 
-int		drawsps(t_ray *ray, t_data *a, int col_id)
+int		draw_sps(t_ray *ray, t_data *a, int col_id)
 {
 	int		i;
 

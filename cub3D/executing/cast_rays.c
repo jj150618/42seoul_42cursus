@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:44:10 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 16:44:10 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:22:19 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		dda_alg(t_ray *ray, t_data *a)
 	return (0);
 }
 
-int		draw3d(t_data *a)
+int		draw_3d(t_data *a)
 {
 	t_ray	ray;
 	int		col_id;
@@ -78,8 +78,8 @@ int		draw3d(t_data *a)
 	{
 		ray_construct(ray.ray_angle, &ray);
 		dda_alg(&ray, a);
-		draw3dline(ray.ray_angle, &ray, a, col_id);
-		drawsps(&ray, a, col_id);
+		draw_3dline(ray.ray_angle, &ray, a, col_id);
+		draw_sps(&ray, a, col_id);
 		ray.ray_angle = normalrad(ray.ray_angle
 		+ (a->ray.fov / a->ray.num_rays));
 		col_id++;

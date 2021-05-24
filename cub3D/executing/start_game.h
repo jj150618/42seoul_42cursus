@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:45:16 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/24 20:57:51 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:20:44 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ int				butt_pressed(int keycode, t_data *a);
 int				butt_released(int keycode, t_data *a);
 int				clicked_cross(int keycode, t_data *a);
 
-int				draw3d(t_data *a);
-int				draw3dline(double ray_angle, t_ray *ray,
-				t_data *a, int col_id);
 int				line(t_line line, t_data *a);
 double			normalrad(double movestep);
 int				update_sprites(t_data *a);
@@ -37,8 +34,12 @@ int				ft_countsprites(char **strs);
 double			distancepoints(double x1, double y1, double x2, double y2);
 int				add_sprites(t_item *items, char **strs, t_data *a);
 int				create_trgb(int t, int r, int g, int b);
+int				draw_3d(t_data *a);
+int				draw_3dline(double ray_angle, t_ray *ray,
+				t_data *a, int col_id);
 int				draw_floorrgb(t_data *a);
 int				draw_ceilingrgb(t_data *a);
+int				draw_sps(t_ray *ray, t_data *a, int col_id);
 int				find_text_wallhit(double ray_angle, t_ray *ray, t_data *a);
 void			clean_sprites(t_data *a, t_sps *sps);
 int				destroyimg(t_data *a, t_img *img);
@@ -73,7 +74,6 @@ int				vertical_interstep(t_data *a, t_ray *ray,
 				double *nexttouch_verx, double *nexttouch_very);
 int				horizontal_interstep(t_data *a, t_ray *ray,
 				double *nexttouch_horx, double *nexttouch_hory);
-int				drawsps(t_ray *ray, t_data *a, int col_id);
 int				vertical_cast_facingleft(t_data *a, t_ray *ray,
 				double *nexttouch_verx, double *nexttouch_very);
 int				vertical_cast_facingright(t_data *a, t_ray *ray,
@@ -85,8 +85,7 @@ int				horizontal_cast_facingdown(t_data *a, t_ray *ray,
 void			horiz_vert_raycomp(t_data *a, t_ray *ray,
 				double *horz_dist, double *vert_dist);
 
-int				bitmap_offset(t_ray *ray, t_data *a);
-int				bitmap_offset_sp(t_item *item, int col_id);
-int				bitmap_offset_floor(t_data *a, double *x, double *y);
+int				set_bitmap(t_ray *ray, t_data *a);
+int				set_bitmap_sp(t_item *item, int col_id);
 
 #endif

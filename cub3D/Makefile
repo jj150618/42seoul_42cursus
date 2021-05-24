@@ -17,7 +17,6 @@ SRCS=	./parsing/text_extract.c \
 		./parsing/ft_parse_utils.c \
 		./parsing/ft_parse_utils2.c \
 		./executing/ft_init.c \
-		./executing/ft_init2.c \
 		./executing/ft_initdestroyimg.c \
 		./executing/update_sprites.c \
 		./executing/cast_rays_horizontal.c \
@@ -34,8 +33,8 @@ SRCS=	./parsing/text_extract.c \
 		./executing/ft_prepare_lines.c \
 		./executing/lines.c \
 		./executing/draw.c \
-		./executing/bitmap_offsets.c \
-		./executing/bmp_screenshot.c \
+		./executing/set_bitmap.c \
+		./executing/save_image.c \
 		./utils.c \
 		./cub3d.c 
 OBJS = $(SRCS:.c=.o)

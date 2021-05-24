@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:45:11 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/24 20:29:57 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:19:34 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		render_next_frame(t_data *a)
 	update_sprites(a);
 	draw_floorrgb(a);
 	draw_ceilingrgb(a);
-	draw3d(a);
+	draw_3d(a);
 	mlx_put_image_to_window(a->win.mlx, a->win.win, a->img_3d.ptr, 0, 0);
 	destroyimg(a, &a->img_3d);
 	return (0);

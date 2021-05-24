@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bmp_screenshot.c                                   :+:      :+:    :+:   */
+/*   save_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:43:47 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/24 20:30:01 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:19:34 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void			screenshot(char *cubname)
 	update_sprites(&a);
 	draw_floorrgb(&a);
 	draw_ceilingrgb(&a);
-	draw3d(&a);
+	draw_3d(&a);
 	convert_bmp(&a);
 	destroyimg(&a, &a.img_3d);
 }
