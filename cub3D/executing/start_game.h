@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:45:16 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/24 20:43:11 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:57:51 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,30 @@
 # define S_KEY 1
 # define D_KEY 2
 
+int				butt_pressed(int keycode, t_data *a);
+int				butt_released(int keycode, t_data *a);
+int				clicked_cross(int keycode, t_data *a);
+
+int				draw3d(t_data *a);
+int				draw3dline(double ray_angle, t_ray *ray,
+				t_data *a, int col_id);
+int				line(t_line line, t_data *a);
+double			normalrad(double movestep);
+int				update_sprites(t_data *a);
+int				ft_countsprites(char **strs);
+double			distancepoints(double x1, double y1, double x2, double y2);
+int				add_sprites(t_item *items, char **strs, t_data *a);
+int				create_trgb(int t, int r, int g, int b);
+int				draw_floorrgb(t_data *a);
+int				draw_ceilingrgb(t_data *a);
+int				find_text_wallhit(double ray_angle, t_ray *ray, t_data *a);
+void			clean_sprites(t_data *a, t_sps *sps);
+int				destroyimg(t_data *a, t_img *img);
 double			calculate_tilesize(t_data *a);
 int				ft_max_strlen(char **strs);
 int				ft_count_lines(char **strs);
 void			ft_playerinfo(t_map2d *map, t_player *joe, char **strs);
 void			ft_update_player(t_data *a);
-int				butt_pressed(int keycode, t_data *a);
-int				butt_released(int keycode, t_data *a);
-int				clicked_cross(int keycode, t_data *a);
-void			ft_init_rays(t_data *a);
-int				draw3d(t_data *a);
-int				line(t_line line, t_data *a);
-double			normalrad(double movestep);
-int				draw3dline(double ray_angle, t_ray *ray,
-				t_data *a, int col_id);
-int				update_sprites(t_data *a);
-int				ft_countsprites(char **strs);
-double			distancepoints(double x1, double y1, double x2, double y2);
-int				add_sprites(t_item *items, char **strs, t_data *a);
 
 void			ft_init_all(t_data *a);
 int				ft_init_texts(t_data *a);
@@ -51,8 +57,8 @@ void			ft_init_player(t_data *a);
 int				ft_init_sprites(t_data *a);
 void			ft_init_img_3d(t_data *a);
 int				ft_init_line(t_data *a);
+void			ft_init_rays(t_data *a);
 
-int				destroyimg(t_data *a, t_img *img);
 int				ft_prepare_3d_line(double ray_angle,
 				t_ray *ray, t_data *a, int col_id);
 int				line3d(t_ray *ray, t_data *a, t_text text_wallhit);
@@ -60,9 +66,6 @@ int				ft_prepare_sprite_line(t_item *item, t_data *a,
 				int col_id);
 int				linesprite(t_item *item,
 				t_data *a, int col_id);
-int				bitmap_offset(t_ray *ray, t_data *a);
-int				bitmap_offset_sp(t_item *item, int col_id);
-int				bitmap_offset_floor(t_data *a, double *x, double *y);
 int				has_wall(double x, double y, t_data *a);
 int				is_sprite_stripe(t_item *item, int col_id);
 
@@ -82,10 +85,8 @@ int				horizontal_cast_facingdown(t_data *a, t_ray *ray,
 void			horiz_vert_raycomp(t_data *a, t_ray *ray,
 				double *horz_dist, double *vert_dist);
 
-int				create_trgb(int t, int r, int g, int b);
-int				draw_floorrgb(t_data *a);
-int				draw_ceilingrgb(t_data *a);
-int				find_text_wallhit(double ray_angle, t_ray *ray, t_data *a);
-void			clean_sprites(t_data *a, t_sps *sps);
+int				bitmap_offset(t_ray *ray, t_data *a);
+int				bitmap_offset_sp(t_item *item, int col_id);
+int				bitmap_offset_floor(t_data *a, double *x, double *y);
 
 #endif

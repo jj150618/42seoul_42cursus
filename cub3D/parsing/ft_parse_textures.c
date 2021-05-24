@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:42:27 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/24 20:47:11 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:55:30 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		check_spritetextures(char **text, t_parse *parse, int *i, int *count)
 	{
 		if (parse->sprite_text)
 			return (ft_error(PARSING_ERROR));
-		if (!ft_parse_S(text[(*i)], parse))
+		if (!ft_parse_s(text[(*i)], parse))
 			return (ft_error(PARSING_ERROR));
 		(*count)++;
 		(*i)++;
