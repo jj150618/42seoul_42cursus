@@ -17,10 +17,10 @@ int		cub3d(char *cubname)
 	int			fd;
 	t_adata		a;
 
-	ft_start_tmap(&a.parse);
+	ft_start_map(&a.parse);
 	fd = open(cubname, O_RDONLY);
 	if (fd <= 0)
-		return (ft_error(INVALID_FILE));
+		return (ft_error(WRONG_FILE));
 	cub_extract(&a.parse, fd);
 	if (a.parse.error)
 	{
@@ -44,7 +44,7 @@ int		main(int argc, char **argv)
 	else if (argc == 2)
 	{
 		if (!is_cubfile(argv[1]))
-			return (ft_error(NOT_CUB_ERROR));
+			return (ft_error(WRONG_CUB));
 		cub3d(argv[1]);
 	}
 	else if (argc == 3)

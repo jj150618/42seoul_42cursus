@@ -3,42 +3,41 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = cub3D
 INCLUDE_DIRS =	includes \
-				extract_and_parse \
-				mandatory_game 
+				parsing \
+				executing 
 INCLUDES = $(addprefix -I, $(INCLUDE_DIRS))
-SRCS=	./extract_and_parse/text_extract.c \
-	   	./extract_and_parse/ft_parse_cub.c \
-	   	./extract_and_parse/ft_parse_resolution.c \
-	   	./extract_and_parse/ft_parse_textures.c \
-	   	./extract_and_parse/ft_parse_textures2.c \
-	   	./extract_and_parse/ft_parse_rgbs.c \
-		./extract_and_parse/ft_parse_map.c \
-		./extract_and_parse/ft_parse_map2.c \
-		./extract_and_parse/ft_parse_utils.c \
-		./extract_and_parse/ft_parse_utils2.c \
-		./mandatory_game/ft_init.c \
-		./mandatory_game/ft_init2.c \
-		./mandatory_game/ft_initdestroyimg.c \
-		./mandatory_game/update_sprites.c \
-		./mandatory_game/cast_rays_horizontal.c \
-		./mandatory_game/cast_rays_vertical.c \
-		./mandatory_game/horiz_vert_raycomp.c \
-		./mandatory_game/start_game_utils.c \
-		./mandatory_game/start_game_utils2.c \
-		./mandatory_game/start_game_utils3.c \
-		./mandatory_game/color_utils.c \
-		./mandatory_game/start_game.c \
-		./mandatory_game/events.c \
-		./mandatory_game/update.c \
-		./mandatory_game/cast_rays.c \
-		./mandatory_game/ft_prepare_lines.c \
-		./mandatory_game/lines.c \
-		./mandatory_game/draw.c \
-		./mandatory_game/draw2.c \
-		./mandatory_game/bitmap_offsets.c \
-		./mandatory_game/bmp_screenshot.c \
-		./other_utils/free_utils.c \
-		./other_utils/ft_error.c \
+SRCS=	./parsing/text_extract.c \
+	   	./parsing/ft_parse_cub.c \
+	   	./parsing/ft_parse_resolution.c \
+	   	./parsing/ft_parse_textures.c \
+	   	./parsing/ft_parse_textures2.c \
+	   	./parsing/ft_parse_rgbs.c \
+		./parsing/ft_parse_map.c \
+		./parsing/ft_parse_map2.c \
+		./parsing/ft_parse_utils.c \
+		./parsing/ft_parse_utils2.c \
+		./executing/ft_init.c \
+		./executing/ft_init2.c \
+		./executing/ft_initdestroyimg.c \
+		./executing/update_sprites.c \
+		./executing/cast_rays_horizontal.c \
+		./executing/cast_rays_vertical.c \
+		./executing/horiz_vert_raycomp.c \
+		./executing/start_game_utils.c \
+		./executing/start_game_utils2.c \
+		./executing/start_game_utils3.c \
+		./executing/color_utils.c \
+		./executing/start_game.c \
+		./executing/events.c \
+		./executing/update.c \
+		./executing/cast_rays.c \
+		./executing/ft_prepare_lines.c \
+		./executing/lines.c \
+		./executing/draw.c \
+		./executing/draw2.c \
+		./executing/bitmap_offsets.c \
+		./executing/bmp_screenshot.c \
+		./utils.c \
 		./cub3d.c 
 OBJS = $(SRCS:.c=.o)
 
