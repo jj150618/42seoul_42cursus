@@ -34,7 +34,6 @@ SRCS=	./parsing/text_extract.c \
 		./executing/ft_prepare_lines.c \
 		./executing/lines.c \
 		./executing/draw.c \
-		./executing/draw2.c \
 		./executing/bitmap_offsets.c \
 		./executing/bmp_screenshot.c \
 		./utils.c \

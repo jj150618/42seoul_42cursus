@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:43:47 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 21:02:22 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:30:01 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void			screenshot(char *cubname)
 	draw_floorrgb(&a);
 	draw_ceilingrgb(&a);
 	draw3d(&a);
-	draw_map(&a);
 	convert_bmp(&a);
 	destroyimg(&a, &a.img_3d);
 }

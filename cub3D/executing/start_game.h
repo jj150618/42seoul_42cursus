@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:45:16 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 21:16:40 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:43:11 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int				ft_max_strlen(char **strs);
 int				ft_count_lines(char **strs);
 void			ft_playerinfo(t_map2d *map, t_player *joe, char **strs);
 void			ft_update_player(t_data *a);
-int				draw_map(t_data *a);
 int				butt_pressed(int keycode, t_data *a);
 int				butt_released(int keycode, t_data *a);
 int				clicked_cross(int keycode, t_data *a);
@@ -88,6 +87,5 @@ int				draw_floorrgb(t_data *a);
 int				draw_ceilingrgb(t_data *a);
 int				find_text_wallhit(double ray_angle, t_ray *ray, t_data *a);
 void			clean_sprites(t_data *a, t_sps *sps);
-int				drawfloortxt(t_ray *ray, t_data *a, int col_id);
 
 #endif

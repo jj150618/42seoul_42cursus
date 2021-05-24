@@ -6,13 +6,13 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:42:33 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 16:42:34 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:47:38 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_parse_S(char *str, t_parse *parse)
+int		ft_parse_s(char *str, t_parse *parse)
 {
 	int i;
 
@@ -27,7 +27,7 @@ int		ft_parse_S(char *str, t_parse *parse)
 	return (1);
 }
 
-int		ft_parse_EA(char *str, t_parse *parse)
+int		ft_parse_ea(char *str, t_parse *parse)
 {
 	int i;
 
@@ -42,7 +42,7 @@ int		ft_parse_EA(char *str, t_parse *parse)
 	return (1);
 }
 
-int		ft_parse_WE(char *str, t_parse *parse)
+int		ft_parse_we(char *str, t_parse *parse)
 {
 	int i;
 
@@ -57,7 +57,7 @@ int		ft_parse_WE(char *str, t_parse *parse)
 	return (1);
 }
 
-int		ft_parse_SO(char *str, t_parse *parse)
+int		ft_parse_so(char *str, t_parse *parse)
 {
 	int i;
 
@@ -72,7 +72,7 @@ int		ft_parse_SO(char *str, t_parse *parse)
 	return (1);
 }
 
-int		ft_parse_NO(char *str, t_parse *parse)
+int		ft_parse_no(char *str, t_parse *parse)
 {
 	int i;
 

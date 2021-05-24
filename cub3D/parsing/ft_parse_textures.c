@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:42:27 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 16:42:27 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:47:11 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		check_walltextures_horiz(char **text, t_parse *parse,
 	{
 		if (parse->no_text)
 			return (ft_error(PARSING_ERROR));
-		if (!ft_parse_NO(text[(*i)], parse))
+		if (!ft_parse_no(text[(*i)], parse))
 			return (ft_error(PARSING_ERROR));
 		(*count)++;
 		(*i)++;
@@ -28,7 +28,7 @@ int		check_walltextures_horiz(char **text, t_parse *parse,
 	{
 		if (parse->so_text)
 			return (ft_error(PARSING_ERROR));
-		if (!ft_parse_SO(text[(*i)], parse))
+		if (!ft_parse_so(text[(*i)], parse))
 			return (ft_error(PARSING_ERROR));
 		(*count)++;
 		(*i)++;
@@ -42,7 +42,7 @@ int		check_walltextures_vert(char **text, t_parse *parse, int *i, int *count)
 	{
 		if (parse->we_text)
 			return (ft_error(PARSING_ERROR));
-		if (!ft_parse_WE(text[(*i)], parse))
+		if (!ft_parse_we(text[(*i)], parse))
 			return (ft_error(PARSING_ERROR));
 		(*count)++;
 		(*i)++;
@@ -51,7 +51,7 @@ int		check_walltextures_vert(char **text, t_parse *parse, int *i, int *count)
 	{
 		if (parse->ea_text)
 			return (ft_error(PARSING_ERROR));
-		if (!ft_parse_EA(text[(*i)], parse))
+		if (!ft_parse_ea(text[(*i)], parse))
 			return (ft_error(PARSING_ERROR));
 		(*count)++;
 		(*i)++;

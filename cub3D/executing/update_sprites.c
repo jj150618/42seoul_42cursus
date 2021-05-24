@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:45:21 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/23 16:45:21 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:21:18 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int		spritescreenposition(t_item *item, t_data *a)
 	double	centersprite;
 
 	item->sprite_w = ((item->imgsp.width / item->imgsp.height) *
-	a->ray.distprojplane) * 0.8 /
+	a->ray.distprojplane) /
 	(item->distance / a->map.tile_size);
-	item->sprite_h = a->ray.distprojplane * 0.8 /
+	item->sprite_h = a->ray.distprojplane /
 	(item->distance / a->map.tile_size);
 	item->ystart = a->win.win_h / 2 -
 	(item->sprite_h / 2);

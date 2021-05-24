@@ -6,7 +6,7 @@
 /*   By: junghkim <junghkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:45:30 by junghkim          #+#    #+#             */
-/*   Updated: 2021/05/24 19:47:25 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:44:18 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_all_strs(char **strs)
 	}
 }
 
-int	ft_error(int error)
+int		ft_error(int error)
 {
 	if (error == WRONG_CUB)
 		write(1, "please check the file's name", 29);
