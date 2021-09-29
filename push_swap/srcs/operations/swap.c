@@ -20,9 +20,9 @@ void	swap_stack(t_stack *stack, int flag)
 	temp->prev = stack->top;
 	if (stack->size == 2)
 		stack->bottom = stack->top->next;
-	if (flag == A)
+	if (flag == 1)
 		ft_putendl_fd("sa", 1);
-	else if (flag == B)
+	else if (flag == 2)
 		ft_putendl_fd("sb", 1);
 }
 
@@ -30,6 +30,6 @@ void	swap_all_stack(t_stack *a, t_stack *b, int flag)
 {
 	swap_stack(a, flag);
 	swap_stack(b, flag);
-	if (flag == ALL)
+	if (flag == 3)
 		ft_putendl_fd("ss", 1);
 }

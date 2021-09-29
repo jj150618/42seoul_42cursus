@@ -17,9 +17,9 @@ void	reverse_rotate_stack(t_stack *stack, int flag)
 	stack->top = temp;
 	stack->bottom = bottom_prev;
 	stack->bottom->next = NULL;
-	if (flag == A)
+	if (flag == 1)
 		ft_putendl_fd("rra", 1);
-	else if (flag == B)
+	else if (flag == 2)
 		ft_putendl_fd("rrb", 1);
 }
 
@@ -27,6 +27,6 @@ void	reverse_rotate_all_stack(t_stack *a, t_stack *b, int flag)
 {
 	reverse_rotate_stack(a, flag);
 	reverse_rotate_stack(b, flag);
-	if (flag == ALL)
+	if (flag == 3)
 		ft_putendl_fd("rrr", 1);
 }

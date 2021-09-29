@@ -51,8 +51,8 @@ void		push_stack(t_stack *from, t_stack *to, int flag)
 	if (from->size == 0)
 		return ;
 	push_pop(from, to);
-	if (flag == A)
+	if (flag == 1)
 		ft_putendl_fd("pa", 1);
-	else if (flag == B)
+	else if (flag == 2)
 		ft_putendl_fd("pb", 1);
 }

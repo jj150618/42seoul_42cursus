@@ -6,12 +6,12 @@ static int	exceptional_cases(int r, t_stack *a, t_stack *b)
 {
 	if (r <= 3)
 	{
-		handle_under_three(r, a, b, B);
+		handle_under_three(r, a, b, 2);
 		return (0);
 	}
 	else if (r == 5)
 	{
-		hanlde_sort_five(5, a, b, B);
+		hanlde_sort_five(5, a, b, 2);
 		return (0);
 	}
 	else
@@ -22,16 +22,16 @@ static void	push_rotate_b(t_stack *a, t_stack *b, t_value *var)
 {
 	if (b->top->value <= var->piv_small)
 	{
-		rotate_stack(b, B);
+		rotate_stack(b, 2);
 		var->rb++;
 	}
 	else
 	{
-		push_stack(b, a, A);
+		push_stack(b, a, 1);
 		var->pa++;
 		if (a->top->value <= var->piv_big)
 		{
-			rotate_stack(a, A);
+			rotate_stack(a, 1);
 			var->ra++;
 		}
 	}
@@ -45,9 +45,9 @@ static void	back_to_orig_ra(t_stack *a, t_stack *b, t_value *var)
 	rrr = var->rb;
 	rem = var->ra - rrr;
 	while (rrr--)
-		reverse_rotate_all_stack(a, b, ALL);
+		reverse_rotate_all_stack(a, b, 3);
 	while (rem--)
-		reverse_rotate_stack(a, A);
+		reverse_rotate_stack(a, 1);
 }
 
 static void	back_to_orig_rb(t_stack *a, t_stack *b, t_value *var)
@@ -58,9 +58,9 @@ static void	back_to_orig_rb(t_stack *a, t_stack *b, t_value *var)
 	rrr = var->ra;
 	rem = var->rb - rrr;
 	while (rrr--)
-		reverse_rotate_all_stack(a, b, ALL);
+		reverse_rotate_all_stack(a, b, 3);
 	while (rem--)
-		reverse_rotate_stack(b, B);
+		reverse_rotate_stack(b, 2);
 }
 
 void		b_to_a(int r, t_stack *a, t_stack *b, int *cnt)

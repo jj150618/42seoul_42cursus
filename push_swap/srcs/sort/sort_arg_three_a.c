@@ -8,17 +8,17 @@ static void	arg_three_top_min_a(t_stack *a, int max)
 	{
 		if (a->top->next->value == max)
 		{
-			reverse_rotate_stack(a, A);
-			swap_stack(a, A);
+			reverse_rotate_stack(a, 1);
+			swap_stack(a, 1);
 		}
 	}
 	else
 	{
 		if (a->top->next->value == max)
 		{
-			rotate_stack(a, A);
-			swap_stack(a, A);
-			reverse_rotate_stack(a, A);
+			rotate_stack(a, 1);
+			swap_stack(a, 1);
+			reverse_rotate_stack(a, 1);
 		}
 	}
 }
@@ -28,18 +28,18 @@ static void	arg_three_middle_min_a(t_stack *a, int max)
 	if (a->size == 3)
 	{
 		if (a->bottom->value == max)
-			swap_stack(a, A);
+			swap_stack(a, 1);
 		else
-			rotate_stack(a, A);
+			rotate_stack(a, 1);
 	}
 	else
 	{
-		swap_stack(a, A);
+		swap_stack(a, 1);
 		if (a->top->next->value == max)
 		{
-			rotate_stack(a, A);
-			swap_stack(a, A);
-			reverse_rotate_stack(a, A);
+			rotate_stack(a, 1);
+			swap_stack(a, 1);
+			reverse_rotate_stack(a, 1);
 		}
 	}
 }
@@ -49,17 +49,17 @@ static void	arg_three_bottom_min_a(t_stack *a, int max)
 	if (a->size == 3)
 	{
 		if (a->top->value == max)
-			swap_stack(a, A);
-		reverse_rotate_stack(a, A);
+			swap_stack(a, 1);
+		reverse_rotate_stack(a, 1);
 	}
 	else
 	{
 		if (a->top->value == max)
-			swap_stack(a, A);
-		rotate_stack(a, A);
-		swap_stack(a, A);
-		reverse_rotate_stack(a, A);
-		swap_stack(a, A);
+			swap_stack(a, 1);
+		rotate_stack(a, 1);
+		swap_stack(a, 1);
+		reverse_rotate_stack(a, 1);
+		swap_stack(a, 1);
 	}
 }
 

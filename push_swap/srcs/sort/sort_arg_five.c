@@ -15,19 +15,19 @@ static void	sort_five_a(int size, t_stack *a, t_stack *b)
 	{
 		if (a->top->value < mid)
 		{
-			push_stack(a, b, B);
+			push_stack(a, b, 2);
 			push++;
 		}
 		else
 		{
-			rotate_stack(a, A);
+			rotate_stack(a, 1);
 			rotate++;
 		}
 		if (push == 2)
 			break ;
 	}
 	while (rotate--)
-		reverse_rotate_stack(a, A);
+		reverse_rotate_stack(a, 1);
 }
 
 static void	sort_five_b(int size, t_stack *a, t_stack *b)
@@ -43,29 +43,29 @@ static void	sort_five_b(int size, t_stack *a, t_stack *b)
 	{
 		if (b->top->value >= mid)
 		{
-			push_stack(b, a, A);
+			push_stack(b, a, 1);
 			push++;
 		}
 		else
 		{
-			rotate_stack(b, B);
+			rotate_stack(b, 2);
 			rotate++;
 		}
 		if (push == 3)
 			break ;
 	}
 	while (rotate--)
-		reverse_rotate_stack(b, B);
+		reverse_rotate_stack(b, 2);
 }
 
 void		hanlde_sort_five(int size, t_stack *a, t_stack *b, int flag)
 {
-	if (flag == A)
+	if (flag == 1)
 		sort_five_a(size, a, b);
 	else
 		sort_five_b(size, a, b);
 	handle_arg_three_a(3, a);
-	handle_arg_two(a, b, B);
+	handle_arg_two(a, b, 2);
 }
 
 void		handle_arg_five(t_stack *a, t_stack *b)
@@ -79,14 +79,14 @@ void		handle_arg_five(t_stack *a, t_stack *b)
 	{
 		if (a->top->value < mid)
 		{
-			push_stack(a, b, B);
+			push_stack(a, b, 2);
 			pb++;
 		}
 		else
-			rotate_stack(a, A);
+			rotate_stack(a, 1);
 		if (pb == 2)
 			break ;
 	}
 	handle_arg_three_a(3, a);
-	handle_arg_two(a, b, B);
+	handle_arg_two(a, b, 2);
 }
