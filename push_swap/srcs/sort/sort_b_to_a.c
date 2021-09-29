@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_b_to_a.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/30 01:03:11 by junghkim          #+#    #+#             */
+/*   Updated: 2021/09/30 01:04:56 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -63,7 +73,7 @@ static void	back_to_orig_rb(t_stack *a, t_stack *b, t_value *var)
 		reverse_rotate_stack(b, 2);
 }
 
-void		b_to_a(int r, t_stack *a, t_stack *b, int *cnt)
+void	b_to_a(int r, t_stack *a, t_stack *b, int *cnt)
 {
 	int		r_temp;
 	t_value	var;

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_max_min_value.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/30 00:46:06 by junghkim          #+#    #+#             */
+/*   Updated: 2021/09/30 00:48:49 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -24,7 +35,7 @@ static int	sort_values(int value[])
 	return (value[2]);
 }
 
-int			get_mid_value_five(t_node *node)
+int	get_mid_value_five(t_node *node)
 {
 	int	i;
 	int	value[5];
@@ -43,7 +54,7 @@ int			get_mid_value_five(t_node *node)
 	return (sort_values(value));
 }
 
-int			get_min_value(t_node *node, int size)
+int	get_min_value(t_node *node, int size)
 {
 	int	min;
 
@@ -62,7 +73,7 @@ int			get_min_value(t_node *node, int size)
 	return (min);
 }
 
-int			get_max_value(t_node *node, int size)
+int	get_max_value(t_node *node, int size)
 {
 	int	max;
 

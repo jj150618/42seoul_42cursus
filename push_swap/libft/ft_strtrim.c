@@ -38,7 +38,7 @@ static size_t	cnt_trim(char const *s, char const *set)
 	return (s_len - i);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	cnt;
 	size_t	len;

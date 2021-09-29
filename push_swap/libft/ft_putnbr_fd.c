@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int temp;
+	int	temp;
 
 	temp = n;
 	if (temp == -2147483648)

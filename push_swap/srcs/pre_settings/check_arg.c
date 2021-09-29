@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/30 00:56:05 by junghkim          #+#    #+#             */
+/*   Updated: 2021/09/30 00:59:03 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -19,7 +29,7 @@ static int	is_numeric(char *arg)
 	return (1);
 }
 
-int			check_arg(char *arg)
+int	check_arg(char *arg)
 {
 	int	i;
 	int	len;
@@ -41,7 +51,7 @@ int			check_arg(char *arg)
 		return (1);
 }
 
-void		check_duplicate(t_node *a)
+void	check_duplicate(t_node *a)
 {
 	int		cur_value;
 	t_node	*temp;

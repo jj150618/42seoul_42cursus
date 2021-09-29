@@ -5,110 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 09:59:26 by junghkim          #+#    #+#             */
-/*   Updated: 2020/10/29 15:39:00 by junghkim         ###   ########.fr       */
+/*   Created: 2021/09/30 00:10:35 by junghkim          #+#    #+#             */
+/*   Updated: 2021/09/30 00:28:05 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	count_str(char const *s, char c)
+static size_t	word_count(char const *s, char c)
 {
-	int i;
-	int cnt;
+	size_t	i;
+	size_t	count;
 
-	cnt = 0;
 	i = 0;
-	if (s[i] && s[i] != c)
+	count = 0;
+	while (s[i] != '\0')
 	{
-		cnt++;
-		i++;
-	}
-	while (s[i])
-	{
-		if (s[i] == c && s[i + 1] != '\0')
-			if (s[i + 1] != c)
-				cnt++;
-		i++;
-	}
-	return (cnt);
-}
-
-static char			*ft_strdup_n(char const *s, unsigned int n)
-{
-	unsigned int	i;
-	char			*temp;
-
-	temp = (char *)malloc(sizeof(char) * (n + 1));
-	if (!temp)
-		return (NULL);
-	i = -1;
-	while (++i < n)
-		temp[i] = s[i];
-	temp[n] = '\0';
-	return (temp);
-}
-
-static void			ft_put_str(char **strs, char const *s, char c)
-{
-	int i;
-	int j;
-	int cnt;
-	int size;
-
-	i = -1;
-	j = 1;
-	cnt = 0;
-	if (s[++i] && s[i] != c)
-		j = 0;
-	while (s[i])
-		if (s[++i] == c)
+		if (s[i] != c)
 		{
-			size = i - j;
-			if (size > 0)
-				strs[cnt++] = ft_strdup_n(s + j, size);
-			j = i + 1;
+			while (s[i] != c && s[i] != '\0')
+				i += 1;
+			count += 1;
 		}
-	size = i - j;
-	if (size > 0)
-		strs[cnt] = ft_strdup_n(s + j, size);
+		else
+			i += 1;
+	}
+	return (count);
 }
 
-static void			strs_free(char **strs)
+static void	freeall(char **array, size_t curr_index)
 {
-	int i;
-
-	i = -1;
-	while (strs[++i] != NULL)
-		free(strs[i]);
-	free(strs);
+	while (curr_index > 0)
+	{
+		free(array[curr_index]);
+		curr_index -= 1;
+	}
+	free(array[0]);
+	free(array);
 }
 
-char				**ft_split(char const *s, char c)
+static char	**fill_array(char const *s, char c, char **array)
 {
-	unsigned int	cnt;
-	unsigned int	i;
-	char			**strs;
+	size_t	i;
+	size_t	found_chr;
+	size_t	curr_str;
+
+	i = 0;
+	curr_str = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			found_chr = i;
+			while (s[i] != c && s[i] != '\0')
+				i += 1;
+			array[curr_str] = ft_substr(s, found_chr, (i - found_chr));
+			if (array[curr_str] == NULL)
+			{
+				freeall(array, i);
+				return (NULL);
+			}
+			curr_str += 1;
+		}
+		else
+			i += 1;
+	}
+	return (array);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**array;
+	size_t	wc;
 
 	if (!s)
 		return (NULL);
-	cnt = count_str(s, c);
-	if (!(strs = (char **)malloc(sizeof(char *) * (cnt + 1))))
+	wc = word_count(s, c);
+	array = ft_calloc(wc + 1, sizeof(char *));
+	if (!array)
 		return (NULL);
-	if (!c && s[0])
-	{
-		free(strs);
-		if (!(strs = (char **)malloc(sizeof(char *) * 2)))
-			return (NULL);
-		strs[0] = ft_strdup_n(s, ft_strlen(s));
-		strs[1] = 0;
-		return (strs);
-	}
-	ft_put_str(strs, s, c);
-	i = 0;
-	while (i < cnt)
-		if (strs[i++] == NULL)
-			strs_free(strs);
-	strs[cnt] = 0;
-	return (strs);
+	array = fill_array(s, c, array);
+	if (array)
+		array[wc] = NULL;
+	return (array);
 }

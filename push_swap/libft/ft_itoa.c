@@ -14,7 +14,7 @@
 
 static int	ft_numlen(int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n <= 0)
@@ -27,7 +27,7 @@ static int	ft_numlen(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*temp;
 	int		i;

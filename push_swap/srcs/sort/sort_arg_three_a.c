@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_arg_three_a.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/30 01:03:00 by junghkim          #+#    #+#             */
+/*   Updated: 2021/09/30 01:04:38 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -63,7 +73,7 @@ static void	arg_three_bottom_min_a(t_stack *a, int max)
 	}
 }
 
-void		handle_arg_three_a(int r, t_stack *a)
+void	handle_arg_three_a(int r, t_stack *a)
 {
 	int	min;
 	int	max;

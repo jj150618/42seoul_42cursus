@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_arg_five.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/30 01:02:04 by junghkim          #+#    #+#             */
+/*   Updated: 2021/09/30 01:04:18 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -58,7 +68,7 @@ static void	sort_five_b(int size, t_stack *a, t_stack *b)
 		reverse_rotate_stack(b, 2);
 }
 
-void		hanlde_sort_five(int size, t_stack *a, t_stack *b, int flag)
+void	hanlde_sort_five(int size, t_stack *a, t_stack *b, int flag)
 {
 	if (flag == 1)
 		sort_five_a(size, a, b);
@@ -68,7 +78,7 @@ void		hanlde_sort_five(int size, t_stack *a, t_stack *b, int flag)
 	handle_arg_two(a, b, 2);
 }
 
-void		handle_arg_five(t_stack *a, t_stack *b)
+void	handle_arg_five(t_stack *a, t_stack *b)
 {
 	int	pb;
 	int	mid;

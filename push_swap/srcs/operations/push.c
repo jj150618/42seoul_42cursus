@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/30 01:05:25 by junghkim          #+#    #+#             */
+/*   Updated: 2021/09/30 01:06:42 by junghkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -45,7 +56,7 @@ static void	push_pop(t_stack *from, t_stack *to)
 	from->size--;
 }
 
-void		push_stack(t_stack *from, t_stack *to, int flag)
+void	push_stack(t_stack *from, t_stack *to, int flag)
 {
 	if (from->size == 0)
 		return ;
