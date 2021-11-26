@@ -28,7 +28,6 @@ SRCS =	./srcs/main.c			\
 		./srcs/operations/swap.c			\
 		./srcs/operations/rotate.c			\
 		./srcs/pre_settings/check_arg.c	\
-		./srcs/pre_settings/ft_atoi.c	\
 		./srcs/pre_settings/init_stack.c\
 		./srcs/sort/handle_under_three.c	\
 		./srcs/sort/sort_a_to_b.c			\

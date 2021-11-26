@@ -6,7 +6,7 @@
 /*   By: junghkim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 10:07:29 by junghkim          #+#    #+#             */
-/*   Updated: 2021/09/29 23:52:09 by junghkim         ###   ########.fr       */
+/*   Updated: 2021/09/30 01:37:38 by junghkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ struct s_list
 	struct s_list	*next;
 };
 
-int					ft_atoi(const char *str);
 void				ft_bzero(void *str, size_t n);
 void				*ft_calloc(size_t n, size_t size);
 int					ft_isalnum(int c);
