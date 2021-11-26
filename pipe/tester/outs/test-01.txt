@@ -1,0 +1,7 @@
+gcc -w -Wall -Wextra -Werror -I ./includes -c pipex.c -o pipex.o
+gcc -w -Wall -Wextra -Werror -I ./includes -c pipex_utils.c -o pipex_utils.o
+gcc -w -Wall -Wextra -Werror -I ./includes -c error_pipex.c -o error_pipex.o
+rm -rf pipex
+make all -C ./libft
+make[1]: Nothing to be done for `all'.
+gcc -w -Wall -Wextra -Werror pipex.o pipex_utils.o error_pipex.o ./libft/libft.a -o pipex
