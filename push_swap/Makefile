@@ -27,6 +27,7 @@ SRCS =	./srcs/main.c			\
 		./srcs/operations/reverse_rotate.c	\
 		./srcs/operations/swap.c			\
 		./srcs/operations/rotate.c			\
+<<<<<<< HEAD
 		./srcs/pre_settings/check_arg.c	\
 		./srcs/pre_settings/init_stack.c\
 		./srcs/sort/handle_under_three.c	\
@@ -35,6 +36,16 @@ SRCS =	./srcs/main.c			\
 		./srcs/sort/sort_arg_three_a.c		\
 		./srcs/sort/sort_arg_three_b.c		\
 		./srcs/sort/sort_b_to_a.c			\
+=======
+		./srcs/check_arg.c	\
+		./srcs/init_stack.c\
+		./srcs/handle_under_three.c	\
+		./srcs/sort_a_to_b.c			\
+		./srcs/sort_arg_five.c			\
+		./srcs/sort_arg_three_a.c		\
+		./srcs/sort_arg_three_b.c		\
+		./srcs/sort_b_to_a.c			\
+>>>>>>> eacb3936aae172476649882454c90341f3a2c0b9
 		./srcs/free.c				\
 		./srcs/get_max_min_value.c	\
 		./srcs/push_swap.c

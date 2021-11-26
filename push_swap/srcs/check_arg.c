@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	is_numeric(char *arg)
+static int	is_num(char *arg)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ int	check_arg(char *arg)
 		i++;
 	while (arg[i++])
 		len++;
-	if (!is_numeric(arg) || len > 11 || len < 0)
+	if (!is_num(arg) || len > 11 || len < 0)
 		return (0);
 	else
 		return (1);

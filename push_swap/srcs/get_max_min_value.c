@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	sort_values(int value[])
+static int	get_mid(int value[])
 {
 	int	i;
 	int	j;
@@ -51,7 +51,7 @@ int	get_mid_value_five(t_node *node)
 	}
 	while (node->prev)
 		node = node->prev;
-	return (sort_values(value));
+	return (get_mid(value));
 }
 
 int	get_min_value(t_node *node, int size)
