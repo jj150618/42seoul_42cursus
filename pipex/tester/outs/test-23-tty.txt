@@ -1,0 +1,1 @@
+zsh: notexisting: command not found

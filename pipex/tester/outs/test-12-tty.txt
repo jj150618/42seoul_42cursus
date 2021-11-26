@@ -1,0 +1,1 @@
+zsh: not-executable: command not found

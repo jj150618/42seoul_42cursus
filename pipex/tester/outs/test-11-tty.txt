@@ -1,0 +1,1 @@
+Should be executed this way: ./pipex file1 cmd1 cmd2 file2
